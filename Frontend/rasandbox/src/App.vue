@@ -9,11 +9,11 @@
       v-if="showFilter"
       :class="{ 'is-active': showFilter }"
       @close="showFilter = false"
-      @companyChange="handelFilterChange"
-      @genreChange="handelFilterChange"
-      @minPriceChange="handelFilterChange"
-      @maxPriceChange="handelFilterChange"
-      @releaseDateChange="handelFilterChange"
+      @companyChange="handelCompanyChange"
+      @genreChange="handelGenreChange"
+      @minPriceChange="handelminPriceChange"
+      @maxPriceChange="handelmaxPriceChange"
+      @releaseDateChange="handelreleaseDateChange"
     />
     <h1 class="main-title">Sandbox Project</h1>
     <div class="columns">
@@ -36,7 +36,14 @@
         v-for="game in gamesList"
         :key="game.name"
       >
-        <ul>
+        <ul
+          v-if="
+            game.company === company &&
+            isInPricerange(game.price) &&
+            game.releaseDate === releaseDate &&
+            isInGenre(game.genre)
+          "
+        >
           <li>{{ game.name }}</li>
           <li>{{ game.price }} €</li>
           <li>{{ game.company }}</li>
@@ -65,6 +72,11 @@ export default Vue.extend({
       gamesList: [] as Game[],
       showModal: false,
       showFilter: false,
+      company: "",
+      genre: "",
+      minPrice: 0,
+      maxPrice: 0,
+      releaseDate: "",
     };
   },
   methods: {
@@ -74,8 +86,34 @@ export default Vue.extend({
     submitGame(name: string) {
       this.gamesList.push({ name: name, appid: 0 });
     },
-    handelFilterChange(filter: string) {
-      return;
+    handelCompanyChange(filter: string) {
+      this.company = filter;
+    },
+    handelGenreChange(filter: string) {
+      this.genre = filter;
+    },
+    handelminPriceChange(filter: number) {
+      this.minPrice = filter;
+    },
+    handelmaxPriceChange(filter: number) {
+      this.maxPrice = filter;
+    },
+    handelreleaseDateChange(filter: string) {
+      this.releaseDate = filter;
+    },
+    isInPricerange(price: number) {
+      if (price > this.minPrice && price < this.maxPrice) {
+        return true;
+      } else {
+        return false;
+      }
+    },
+    isInGenre(genres: string[]) {
+      if (genres.includes(this.genre)) {
+        return true;
+      } else {
+        return false;
+      }
     },
   },
   beforeMount() {
