@@ -8,4 +8,8 @@ export interface Game {
     playtime_windows_forever?: number;
     playtime_mac_forever?: number;
     playtime_linux_forever?: number;
+    company?: string;
+    price?: number;
+    releaseDate?: string;
+    genre?: string[];
 }

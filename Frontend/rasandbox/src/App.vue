@@ -11,7 +11,12 @@
         v-for="game in gamesList"
         :key="game.name"
       >
-        {{ game.name }}
+        <ul>
+          <li>{{ game.name }}</li>
+          <li>{{ game.price }} €</li>
+          <li>{{ game.company }}</li>
+          <li>{{ game.releaseDate }}</li>
+        </ul>
       </div>
     </div>
   </div>
