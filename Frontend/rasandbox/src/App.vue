@@ -5,11 +5,13 @@
       <input type="text" class="SBinput" v-model="inputText" />
       <button @click="submitGame(inputText)" class="SBbutton">Submit</button>
     </div>
-    <div class="columns is-desktop is-multiline">
-      <div class="column" v-for="game in gamesList" :key="game.name">
-        <div class="gameBox">
-          {{ game.name }}
-        </div>
+    <div class="columns is-desktop is-multiline is-gapless">
+      <div
+        class="column is-one-third gameBox"
+        v-for="game in gamesList"
+        :key="game.name"
+      >
+        {{ game.name }}
       </div>
     </div>
   </div>
