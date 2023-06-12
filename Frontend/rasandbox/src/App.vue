@@ -6,11 +6,19 @@
       @close="showModal = false"
     />
     <h1 class="main-title">Sandbox Project</h1>
-    <div class="main-input">
-      <input type="text" class="SBinput" v-model="inputText" />
-      <button @click="submitGame(inputText)" class="SBbutton">Submit</button>
-      <button @click="showModal = true" class="SBbutton">Show Modal</button>
-      <dropdown />
+    <div class="columns">
+      <div class="colum is-one-fourth">
+        <input type="text" class="input is-normal" v-model="inputText" />
+      </div>
+      <div class="colum is-one-fourth">
+        <button @click="submitGame(inputText)" class="button">Submit</button>
+      </div>
+      <div class="colum is-one-fourth">
+        <button @click="showModal = true" class="button">Show Modal</button>
+      </div>
+      <div class="colum is-one-fourth">
+        <dropdown />
+      </div>
     </div>
     <div class="columns is-1-desktop is-multiline">
       <div
@@ -72,6 +80,7 @@ export default Vue.extend({
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+  margin-bottom: 1rem;
 }
 .SBinput {
   border: none;
@@ -88,8 +97,8 @@ export default Vue.extend({
   background-color: lightgrey;
 }
 .main-input {
-  display: flex;
-  justify-content: center;
+  margin-bottom: 0.75rem;
+  margin-left: 0.5rem;
 }
 .gameBox {
   border: 1px solid black;

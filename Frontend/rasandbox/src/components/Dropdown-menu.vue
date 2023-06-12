@@ -1,23 +1,9 @@
 <template>
-  <div class="dropdown">
-    <div class="dropdown-trigger">
-      <button class="button" aria-haspopup="true" aria-controls="dropdown-menu">
-        <span>Dropdown button</span>
-        <span class="icon is-small">
-          <i class="fas fa-angle-down" aria-hidden="true"></i>
-        </span>
-      </button>
-    </div>
-    <div class="dropdown-menu" id="dropdown-menu" role="menu">
-      <div class="dropdown-content">
-        <a href="#" class="dropdown-item"> Dropdown item </a>
-        <a class="dropdown-item"> Other dropdown item </a>
-        <a href="#" class="dropdown-item"> Active dropdown item </a>
-        <a href="#" class="dropdown-item"> Other dropdown item </a>
-        <hr class="dropdown-divider" />
-        <a href="#" class="dropdown-item"> With a divider </a>
-      </div>
-    </div>
+  <div class="select">
+    <select v-model="filter" @change="handleFilterClick">
+      <option>Select dropdown</option>
+      <option>With options</option>
+    </select>
   </div>
 </template>
 
@@ -30,8 +16,13 @@ export default Vue.extend({
   data() {
     return {
       showDropDown: false,
+      filter: "",
     };
   },
-  methods: {},
+  methods: {
+    handleFilterClick() {
+      console.log(this.filter);
+    },
+  },
 });
 </script>
