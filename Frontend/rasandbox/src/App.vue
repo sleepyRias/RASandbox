@@ -10,6 +10,7 @@
       <input type="text" class="SBinput" v-model="inputText" />
       <button @click="submitGame(inputText)" class="SBbutton">Submit</button>
       <button @click="showModal = true" class="SBbutton">Show Modal</button>
+      <dropdown />
     </div>
     <div class="columns is-1-desktop is-multiline">
       <div
@@ -33,17 +34,20 @@ import Vue from "vue";
 import Games from "./response.json";
 import { Game } from "./Game";
 import UserModal from "./components/User-modal.vue";
+import Dropdown from "./components/Dropdown-menu.vue";
 
 export default Vue.extend({
   name: "App",
   components: {
     UserModal,
+    Dropdown,
   },
   data() {
     return {
       inputText: "",
       gamesList: [] as Game[],
       showModal: false,
+      showDropDown: false,
     };
   },
   methods: {
