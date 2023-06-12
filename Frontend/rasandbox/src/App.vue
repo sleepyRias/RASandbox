@@ -1,9 +1,15 @@
 <template>
   <div>
+    <user-modal
+      v-if="showModal"
+      :class="{ 'is-active': showModal }"
+      @close="showModal = false"
+    />
     <h1 class="main-title">Sandbox Project</h1>
     <div class="main-input">
       <input type="text" class="SBinput" v-model="inputText" />
       <button @click="submitGame(inputText)" class="SBbutton">Submit</button>
+      <button @click="showModal = true">Show Modal</button>
     </div>
     <div class="gameBox" v-for="game in gamesList" :key="game.name">
       {{ game.name }}
@@ -15,14 +21,18 @@
 import Vue from "vue";
 import Games from "./response.json";
 import { Game } from "./Game";
+import UserModal from "./components/User-modal.vue";
 
 export default Vue.extend({
   name: "App",
-  components: {},
+  components: {
+    UserModal,
+  },
   data() {
     return {
       inputText: "",
       gamesList: [] as Game[],
+      showModal: false,
     };
   },
   methods: {
