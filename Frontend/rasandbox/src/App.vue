@@ -9,6 +9,11 @@
       v-if="showFilter"
       :class="{ 'is-active': showFilter }"
       @close="showFilter = false"
+      @companyChange="handelFilterChange"
+      @genreChange="handelFilterChange"
+      @minPriceChange="handelFilterChange"
+      @maxPriceChange="handelFilterChange"
+      @releaseDateChange="handelFilterChange"
     />
     <h1 class="main-title">Sandbox Project</h1>
     <div class="columns">
@@ -68,6 +73,9 @@ export default Vue.extend({
     },
     submitGame(name: string) {
       this.gamesList.push({ name: name, appid: 0 });
+    },
+    handelFilterChange(filter: string) {
+      return;
     },
   },
   beforeMount() {

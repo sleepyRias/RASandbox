@@ -11,7 +11,7 @@
               type="text"
               placeholder="Hersteller"
               v-model="company"
-              @change="$emit('company-change', company)"
+              @input="$emit('companyChange', company)"
             />
           </div>
           <div class="column is-one-fourth">
@@ -19,22 +19,22 @@
               <select
                 name="Genre"
                 v-model="genre"
-                @change="$emit('genre-change', genre)"
+                @change="$emit('genreChange', genre)"
               >
-                <option>Horror</option>
-                <option>Abenteuer</option>
-                <option>Physik</option>
-                <option>Survival</option>
-                <option>Simulation</option>
-                <option>Aufbauspiel</option>
-                <option>Robert hat Spaß</option>
-                <option>RPG</option>
-                <option>MMO</option>
-                <option>Krieg</option>
-                <option>Weltraum</option>
-                <option>Story</option>
-                <option>Cyberpunk</option>
-                <option>FPS</option>
+                <option value="Horror">Horror</option>
+                <option value="Abenteuer">Abenteuer</option>
+                <option value="Physik">Physik</option>
+                <option value="Survival">Survival</option>
+                <option value="Simulation">Simulation</option>
+                <option value="Aufbauspiel">Aufbauspiel</option>
+                <option value="Robert hat Spaß">Robert hat Spaß</option>
+                <option value="RPG">RPG</option>
+                <option value="MMO">MMO</option>
+                <option value="Krieg">Krieg</option>
+                <option value="Weltraum">Weltraum</option>
+                <option value="Story">Story</option>
+                <option value="Cyberpunk">Cyberpunk</option>
+                <option value="FPS">FPS</option>
               </select>
             </div>
           </div>
