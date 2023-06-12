@@ -8,29 +8,29 @@ namespace backend.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class Game : ControllerBase
+    public class GameModelController : ControllerBase
     {
         private readonly ApplicationDbContext _dbContext;
 
-        public Game(ApplicationDbContext dbContext)
+        public GameModelController(ApplicationDbContext dbContext)
         {
             _dbContext = dbContext;
         }
 
-        // GET api/game
-        //[HttpGet]
-        //public async Task<ActionResult<List<Game>>> Get()
-        //{
-        //    return await _dbContext.Game.ToListAsync();
-        //}
+        //GET api/game
+        [HttpGet]
+        public async Task<ActionResult<List<Game>>> Get()
+        {
+            return await _dbContext.Game.ToListAsync();
+        }
 
-        //// GET api/Game/{email}
-        //[Authorize]
-        //[HttpGet("{id}")]
-        //public async Task<ActionResult<Game>> Get(string id)
-        //{
-        //    return await _dbContext.Game.FindAsync(id);
-        //}
+        // GET api/Game/{email}
+        [Authorize]
+        [HttpGet("{id}")]
+        public async Task<ActionResult<Game>> Get(string id)
+        {
+            return await _dbContext.Game.FindAsync(id);
+        }
 
         // POST api/game
         [Authorize]
@@ -41,22 +41,23 @@ namespace backend.Controllers
             await _dbContext.SaveChangesAsync();
         }
 
-        // PUT api/game/{email}
-        //[Authorize]
-        //[HttpPut("{id}")]
-        //public async Task<ActionResult> Put(string id, Game model)
-        //{
-        //    var exists = await _dbContext.Game.AnyAsync(f => f.Id == id);
-        //    if (!exists)
-        //    {
-        //        return NotFound();
-        //    }
+        //PUT api/game/{email
 
-        //    _dbContext.Game.Update(model);
+        [Authorize]
+        [HttpPut("{id}")]
+        public async Task<ActionResult> Put(string id, Game model)
+        {
+            var exists = await _dbContext.Game.AnyAsync(f => f.Id == id);
+            if (!exists)
+            {
+                return NotFound();
+            }
 
-        //    await _dbContext.SaveChangesAsync();
+            _dbContext.Game.Update(model);
 
-        //    return Ok();
-        //}
+            await _dbContext.SaveChangesAsync();
+
+            return Ok();
+        }
     }
 }

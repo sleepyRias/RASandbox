@@ -27,8 +27,8 @@ namespace backend
         public void ConfigureServices(IServiceCollection services)
         {
             string connectionString = Configuration.GetConnectionString("DefaultConnection");
-            //services.AddDbContext<ApplicationDbContext>(options => options.UseSqlite(connectionString));
-            //services.AddSpaStaticFiles(configuration: options => { options.RootPath = "wwwroot"; });
+            services.AddDbContext<ApplicationDbContext>(options => options.UseSqlite(connectionString));
+            services.AddSpaStaticFiles(configuration: options => { options.RootPath = "wwwroot"; });
             services.AddControllers();
             services.AddCors(options =>
             {
@@ -64,12 +64,12 @@ namespace backend
             app.UseMvc();
             app.UseRouting();
             app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
-            //app.UseSpaStaticFiles();
+            app.UseSpaStaticFiles();
             //app.UseSpa(configuration: builder =>
             //{
             //    if (env.IsDevelopment())
             //    {
-            //        builder.UseProxyToSpaDevelopmentServer("http://localhost:8080");
+            //        builder.UseProxyToSpaDevelopmentServer("http://localhost:8087");
             //    }
             //});
         }
