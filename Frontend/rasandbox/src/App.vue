@@ -11,8 +11,14 @@
       <button @click="submitGame(inputText)" class="SBbutton">Submit</button>
       <button @click="showModal = true">Show Modal</button>
     </div>
-    <div class="gameBox" v-for="game in gamesList" :key="game.name">
-      {{ game.name }}
+    <div class="columns is-desktop is-multiline is-gapless">
+      <div
+        class="column is-one-third gameBox"
+        v-for="game in gamesList"
+        :key="game.name"
+      >
+        {{ game.name }}
+      </div>
     </div>
   </div>
 </template>
@@ -50,9 +56,6 @@ export default Vue.extend({
 </script>
 
 <style>
-html {
-  background-image: linear-gradient(cyan, hotpink);
-}
 .main-title {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -80,7 +83,7 @@ html {
   justify-content: center;
 }
 .gameBox {
-  border: 2px solid black;
+  border: 1px solid black;
   height: 10vh;
   width: 90vw;
   margin: 0 auto;
