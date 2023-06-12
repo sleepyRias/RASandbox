@@ -9,7 +9,7 @@ export interface Game {
     playtime_mac_forever?: number;
     playtime_linux_forever?: number;
     company?: string;
-    price?: number;
+    price: number;
     releaseDate?: string;
-    genre?: string[];
+    genre: string[];
 }

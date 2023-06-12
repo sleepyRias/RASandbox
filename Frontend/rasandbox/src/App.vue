@@ -84,7 +84,7 @@ export default Vue.extend({
       this.gamesList = Games.response.games;
     },
     submitGame(name: string) {
-      this.gamesList.push({ name: name, appid: 0 });
+      this.gamesList.push({ name: name, appid: 0, price: 0, genre: [] });
     },
     handelCompanyChange(filter: string) {
       this.company = filter;
