@@ -47,6 +47,7 @@
               max="20"
               step="1"
               v-model="minPrice"
+              @change="$emit('minPriceChange', minPrice)"
             />
             {{ minPrice }} €
             <span>Maximal Preis</span>
@@ -57,6 +58,7 @@
               max="100"
               step="1"
               v-model="maxPrice"
+              @change="$emit('maxPriceChange', maxPrice)"
             />
             {{ maxPrice }} €
           </div>
@@ -70,6 +72,7 @@
               min="1999-01-01"
               max="2100-12-31"
               v-model="releaseDate"
+              @change="$emit('releaseDateChange', releaseDate)"
             />
           </div>
         </div>
