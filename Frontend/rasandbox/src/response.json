@@ -1,0 +1,97 @@
+{
+    "response": {
+        "total_count": 9,
+        "games": [
+            {
+                "appid": 70,
+                "name": "Half-Life",
+                "playtime_2weeks": 174,
+                "playtime_forever": 592,
+                "img_icon_url": "95be6d131fc61f145797317ca437c9765f24b41c",
+                "playtime_windows_forever": 220,
+                "playtime_mac_forever": 0,
+                "playtime_linux_forever": 14
+            },
+            {
+                "appid": 1594320,
+                "name": "Captain of Industry",
+                "playtime_2weeks": 61,
+                "playtime_forever": 4768,
+                "img_icon_url": "ac3ebd0dd8f4244545ca18091b23f60de42d7ade",
+                "playtime_windows_forever": 4768,
+                "playtime_mac_forever": 0,
+                "playtime_linux_forever": 0
+            },
+            {
+                "appid": 2141910,
+                "name": "Magic: The Gathering Arena",
+                "playtime_2weeks": 57,
+                "playtime_forever": 57,
+                "img_icon_url": "7d47257d34e74c04121cbdffd23af8eaa2914a85",
+                "playtime_windows_forever": 31,
+                "playtime_mac_forever": 0,
+                "playtime_linux_forever": 25
+            },
+            {
+                "appid": 480,
+                "name": "Spacewar",
+                "playtime_2weeks": 13,
+                "playtime_forever": 2283,
+                "img_icon_url": "",
+                "playtime_windows_forever": 2003,
+                "playtime_mac_forever": 0,
+                "playtime_linux_forever": 0
+            },
+            {
+                "appid": 1091500,
+                "name": "Cyberpunk 2077",
+                "playtime_2weeks": 11,
+                "playtime_forever": 10294,
+                "img_icon_url": "15ba5f5437473a1b4d628b3b87223e84f4cfdf38",
+                "playtime_windows_forever": 10280,
+                "playtime_mac_forever": 0,
+                "playtime_linux_forever": 14
+            },
+            {
+                "appid": 1868180,
+                "name": " Etrian Odyssey HD",
+                "playtime_2weeks": 5,
+                "playtime_forever": 5,
+                "img_icon_url": "47e1dc4e4217e0a5f44235b0f643f56d04d8afcd",
+                "playtime_windows_forever": 0,
+                "playtime_mac_forever": 0,
+                "playtime_linux_forever": 5
+            },
+            {
+                "appid": 730,
+                "name": "Counter-Strike: Global Offensive",
+                "playtime_2weeks": 4,
+                "playtime_forever": 664,
+                "img_icon_url": "69f7ebe2735c366c65c0b33dae00e12dc40edbe4",
+                "playtime_windows_forever": 83,
+                "playtime_mac_forever": 0,
+                "playtime_linux_forever": 0
+            },
+            {
+                "appid": 736260,
+                "name": "Baba Is You",
+                "playtime_2weeks": 3,
+                "playtime_forever": 816,
+                "img_icon_url": "9b9e1838838c21ee443359efe30b6a56cf0531dd",
+                "playtime_windows_forever": 306,
+                "playtime_mac_forever": 0,
+                "playtime_linux_forever": 131
+            },
+            {
+                "appid": 1172380,
+                "name": "STAR WARS Jedi: Fallen Order™ ",
+                "playtime_2weeks": 1,
+                "playtime_forever": 1703,
+                "img_icon_url": "0ea1d285a8ee6fbeef0e8f7f3b2d7fa4cbcb423b",
+                "playtime_windows_forever": 1050,
+                "playtime_mac_forever": 0,
+                "playtime_linux_forever": 652
+            }
+        ]
+    }
+}
