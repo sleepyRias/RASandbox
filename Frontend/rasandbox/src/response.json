@@ -10,7 +10,16 @@
                 "img_icon_url": "95be6d131fc61f145797317ca437c9765f24b41c",
                 "playtime_windows_forever": 220,
                 "playtime_mac_forever": 0,
-                "playtime_linux_forever": 14
+                "playtime_linux_forever": 14,
+                "company": "Valve",
+                "price": 20,
+                "releaseDate": "01.05.2004",
+                "genre": [
+                    "Horror",
+                    "Abenteuer",
+                    "Physik",
+                    "Survival"
+                ]
             },
             {
                 "appid": 1594320,
@@ -20,7 +29,16 @@
                 "img_icon_url": "ac3ebd0dd8f4244545ca18091b23f60de42d7ade",
                 "playtime_windows_forever": 4768,
                 "playtime_mac_forever": 0,
-                "playtime_linux_forever": 0
+                "playtime_linux_forever": 0,
+                "company": "Adobe",
+                "price": 40,
+                "releaseDate": "26.09.2014",
+                "genre": [
+                    "Abenteuer",
+                    "Simulation",
+                    "Aufbauspiel",
+                    "Robert hat Spaß"
+                ]
             },
             {
                 "appid": 2141910,
@@ -30,7 +48,17 @@
                 "img_icon_url": "7d47257d34e74c04121cbdffd23af8eaa2914a85",
                 "playtime_windows_forever": 31,
                 "playtime_mac_forever": 0,
-                "playtime_linux_forever": 25
+                "playtime_linux_forever": 25,
+                "company": "343 Studios",
+                "price": 14.99,
+                "releaseDate": "07.07.2007",
+                "genre": [
+                    "Simulation",
+                    "RPG",
+                    "MMO",
+                    "Abenteuer",
+                    "Survival"
+                ]
             },
             {
                 "appid": 480,
@@ -40,7 +68,17 @@
                 "img_icon_url": "",
                 "playtime_windows_forever": 2003,
                 "playtime_mac_forever": 0,
-                "playtime_linux_forever": 0
+                "playtime_linux_forever": 0,
+                "company": "Paradox Interactive",
+                "price": 40,
+                "releaseDate": "07.08.2008",
+                "genre": [
+                    "Krieg",
+                    "Weltraum",
+                    "Simulation",
+                    "MMO",
+                    "Aufbauspiel"
+                ]
             },
             {
                 "appid": 1091500,
@@ -50,7 +88,18 @@
                 "img_icon_url": "15ba5f5437473a1b4d628b3b87223e84f4cfdf38",
                 "playtime_windows_forever": 10280,
                 "playtime_mac_forever": 0,
-                "playtime_linux_forever": 14
+                "playtime_linux_forever": 14,
+                "company": "CD Projekt Red",
+                "price": 50,
+                "releaseDate": "21.11.2020",
+                "genre": [
+                    "Cyberpunk",
+                    "Abenteuer",
+                    "Survival",
+                    "RPG",
+                    "Story",
+                    "Simulation"
+                ]
             },
             {
                 "appid": 1868180,
@@ -60,7 +109,17 @@
                 "img_icon_url": "47e1dc4e4217e0a5f44235b0f643f56d04d8afcd",
                 "playtime_windows_forever": 0,
                 "playtime_mac_forever": 0,
-                "playtime_linux_forever": 5
+                "playtime_linux_forever": 5,
+                "company": "RA Micro Software AG",
+                "price": 2.99,
+                "releaseDate": "05.12.2012",
+                "genre": [
+                    "Simulation",
+                    "Aufbauspiel",
+                    "Abenteuer",
+                    "Robert hat Spaß",
+                    "Story"
+                ]
             },
             {
                 "appid": 730,
@@ -70,7 +129,16 @@
                 "img_icon_url": "69f7ebe2735c366c65c0b33dae00e12dc40edbe4",
                 "playtime_windows_forever": 83,
                 "playtime_mac_forever": 0,
-                "playtime_linux_forever": 0
+                "playtime_linux_forever": 0,
+                "company": "Valve",
+                "price": 0,
+                "releaseDate": "25.06.2016",
+                "genre": [
+                    "Krieg",
+                    "FPS",
+                    "Simulation",
+                    "Physik"
+                ]
             },
             {
                 "appid": 736260,
@@ -80,7 +148,17 @@
                 "img_icon_url": "9b9e1838838c21ee443359efe30b6a56cf0531dd",
                 "playtime_windows_forever": 306,
                 "playtime_mac_forever": 0,
-                "playtime_linux_forever": 131
+                "playtime_linux_forever": 131,
+                "company": "Adobe",
+                "price": 0,
+                "releaseDate": "05.12.2012",
+                "genre": [
+                    "Robert hat Spaß",
+                    "Abenteuer",
+                    "Simulation",
+                    "Story",
+                    "MMO"
+                ]
             },
             {
                 "appid": 1172380,
@@ -90,7 +168,17 @@
                 "img_icon_url": "0ea1d285a8ee6fbeef0e8f7f3b2d7fa4cbcb423b",
                 "playtime_windows_forever": 1050,
                 "playtime_mac_forever": 0,
-                "playtime_linux_forever": 652
+                "playtime_linux_forever": 652,
+                "company": "Respawn",
+                "price": 69.99,
+                "releaseDate": "04.05.2020",
+                "genre": [
+                    "Story",
+                    "Krieg",
+                    "Survival",
+                    "Physik",
+                    "RPG"
+                ]
             }
         ]
     }
