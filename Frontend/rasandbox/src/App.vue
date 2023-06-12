@@ -13,7 +13,8 @@
 
 <script lang="ts">
 import Vue from "vue";
-import Games from "@/response.json";
+import Games from "./response.json";
+import { Game } from "./Game";
 
 export default Vue.extend({
   name: "App",
@@ -21,15 +22,15 @@ export default Vue.extend({
   data() {
     return {
       inputText: "",
-      gamesList: [],
+      gamesList: [] as Game[],
     };
   },
   methods: {
     requestGames() {
       this.gamesList = Games.response.games;
     },
-    submitGame(name) {
-      this.gamesList.push({ name: name });
+    submitGame(name: string) {
+      this.gamesList.push({ name: name, appid: 0 });
     },
   },
   beforeMount() {
