@@ -5,6 +5,11 @@
       :class="{ 'is-active': showModal }"
       @close="showModal = false"
     />
+    <filter-modal
+      v-if="showFilter"
+      :class="{ 'is-active': showFilter }"
+      @close="showFilter = false"
+    />
     <h1 class="main-title">Sandbox Project</h1>
     <div class="columns">
       <div class="colum is-one-fourth">
@@ -17,7 +22,7 @@
         <button @click="showModal = true" class="button">Show Modal</button>
       </div>
       <div class="colum is-one-fourth">
-        <dropdown />
+        <button class="button" @click="showFilter = !showFilter">Filter</button>
       </div>
     </div>
     <div class="columns is-1-desktop is-multiline">
@@ -42,20 +47,19 @@ import Vue from "vue";
 import Games from "./response.json";
 import { Game } from "./Game";
 import UserModal from "./components/User-modal.vue";
-import Dropdown from "./components/Dropdown-menu.vue";
-
+import FilterModal from "./components/Filter-modal.vue";
 export default Vue.extend({
   name: "App",
   components: {
     UserModal,
-    Dropdown,
+    FilterModal,
   },
   data() {
     return {
       inputText: "",
       gamesList: [] as Game[],
       showModal: false,
-      showDropDown: false,
+      showFilter: false,
     };
   },
   methods: {
