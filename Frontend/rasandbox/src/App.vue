@@ -9,9 +9,9 @@
     <div class="main-input">
       <input type="text" class="SBinput" v-model="inputText" />
       <button @click="submitGame(inputText)" class="SBbutton">Submit</button>
-      <button @click="showModal = true">Show Modal</button>
+      <button @click="showModal = true" class="SBbutton">Show Modal</button>
     </div>
-    <div class="columns is-desktop is-multiline is-gapless">
+    <div class="columns is-1-desktop is-multiline">
       <div
         class="column is-one-third gameBox"
         v-for="game in gamesList"
@@ -89,8 +89,6 @@ export default Vue.extend({
 }
 .gameBox {
   border: 1px solid black;
-  height: 10vh;
-  width: 90vw;
   margin: 0 auto;
   margin-top: 10px;
   display: flex;
