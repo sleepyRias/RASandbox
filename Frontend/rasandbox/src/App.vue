@@ -5,8 +5,10 @@
       <input type="text" class="SBinput" v-model="inputText" />
       <button @click="submitGame(inputText)" class="SBbutton">Submit</button>
     </div>
-    <div class="gameBox" v-for="game in gamesList" :key="game.name">
-      {{ game.name }}
+    <div class="columns">
+      <div class="column" v-for="game in gamesList" :key="game.name">
+        {{ game.name }}
+      </div>
     </div>
   </div>
 </template>
@@ -40,9 +42,6 @@ export default Vue.extend({
 </script>
 
 <style>
-html {
-  background-image: linear-gradient(cyan, hotpink);
-}
 .main-title {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
