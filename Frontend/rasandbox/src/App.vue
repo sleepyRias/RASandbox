@@ -36,6 +36,7 @@
         v-for="game in gamesList"
         :key="game.name"
       >
+        <span>{{ game.name }}</span>
         <ul
           v-if="
             game.company === company &&
@@ -109,11 +110,7 @@ export default Vue.extend({
       }
     },
     isInGenre(genres: string[]) {
-      if (genres.includes(this.genre)) {
-        return true;
-      } else {
-        return false;
-      }
+      return genres.includes(this.genre);
     },
   },
   beforeMount() {
