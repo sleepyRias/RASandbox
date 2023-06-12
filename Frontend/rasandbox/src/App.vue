@@ -5,9 +5,11 @@
       <input type="text" class="SBinput" v-model="inputText" />
       <button @click="submitGame(inputText)" class="SBbutton">Submit</button>
     </div>
-    <div class="columns">
+    <div class="columns is-desktop is-multiline">
       <div class="column" v-for="game in gamesList" :key="game.name">
-        {{ game.name }}
+        <div class="gameBox">
+          {{ game.name }}
+        </div>
       </div>
     </div>
   </div>
@@ -69,7 +71,7 @@ export default Vue.extend({
   justify-content: center;
 }
 .gameBox {
-  border: 2px solid black;
+  border: 1px solid black;
   height: 10vh;
   width: 90vw;
   margin: 0 auto;
