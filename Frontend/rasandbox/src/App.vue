@@ -32,7 +32,17 @@
         v-for="game in gamesList"
         :key="game.name"
       >
-        <div class="gameBox">
+        <div
+          class="gameBox"
+          v-if="
+            ((filter.company === undefined ||
+              filter.company === game.company) &&
+              (filter.genre === undefined || isInGenre(game.genre)) &&
+              filter.releaseDate === undefined) ||
+            (filter.releaseDate === game.releaseDate &&
+              isInPricerange(game.price))
+          "
+        >
           <ul>
             <li>{{ game.name }}</li>
             <li>{{ game.price }}€</li>
