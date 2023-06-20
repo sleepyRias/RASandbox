@@ -27,7 +27,7 @@ namespace backend.Controllers
         // GET api/Game/{email}
         [Authorize]
         [HttpGet("{id}")]
-        public async Task<ActionResult<Game>> Get(string id)
+        public async Task<ActionResult<Game>> Get(int id)
         {
             return await _dbContext.Game.FindAsync(id);
         }
@@ -45,9 +45,9 @@ namespace backend.Controllers
 
         [Authorize]
         [HttpPut("{id}")]
-        public async Task<ActionResult> Put(string id, Game model)
+        public async Task<ActionResult> Put(int id, Game model)
         {
-            var exists = await _dbContext.Game.AnyAsync(f => f.Id == id);
+            var exists = await _dbContext.Game.AnyAsync(f => f.id == id);
             if (!exists)
             {
                 return NotFound();

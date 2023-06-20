@@ -4,8 +4,7 @@ namespace backend
 {
     public class Game
     {
-        public string Id { get; set; }
-        public int Value { get; set; }
-        public DateTime DateTime { get; set; }
+        public int id { get; set; }
+        public string? gamename { get; set; }
     }
 }
