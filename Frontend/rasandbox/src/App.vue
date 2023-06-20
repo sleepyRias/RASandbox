@@ -26,26 +26,20 @@
         <button class="button" @click="showFilter = !showFilter">Filter</button>
       </div>
     </div>
-    <div class="columns is-1-desktop is-multiline">
+    <div class="columns is-gapless is-1-desktop is-multiline">
       <div
-        class="column is-one-third gameBox"
+        class="column is-one-third"
         v-for="game in gamesList"
         :key="game.name"
       >
-        <span>{{ game.name }}</span>
-        <ul
-          v-if="
-            game.company === filter.company &&
-            isInPricerange(game.price) &&
-            game.releaseDate === filter.releaseDate &&
-            isInGenre(game.genre)
-          "
-        >
-          <li>{{ game.name }}</li>
-          <li>{{ game.price }} €</li>
-          <li>{{ game.company }}</li>
-          <li>{{ game.releaseDate }}</li>
-        </ul>
+        <div class="gameBox">
+          <ul>
+            <li>{{ game.name }}</li>
+            <li>{{ game.price }}€</li>
+            <li>{{ game.company }}</li>
+            <li>{{ game.releaseDate }}</li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
@@ -81,7 +75,7 @@ export default Vue.extend({
       this.gamesList.push({ name: name, appid: 0, price: 0, genre: [] });
     },
     updateFilter(filter: GameFilter) {
-      this.filter = filter;
+      Object.assign(this.filter, filter);
     },
     isInPricerange(price: number) {
       if (price > this.filter.minPrice && price < this.filter.maxPrice) {

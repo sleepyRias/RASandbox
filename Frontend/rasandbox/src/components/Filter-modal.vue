@@ -85,6 +85,9 @@
     >
       close
     </button>
+    <footer class="modal-card-foot">
+      <button class="button is-success" @click="$emit('close')">Submit</button>
+    </footer>
   </div>
 </template>
 
