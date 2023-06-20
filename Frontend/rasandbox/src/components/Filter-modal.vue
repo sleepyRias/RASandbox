@@ -117,3 +117,8 @@ export default Vue.extend({
   methods: {},
 });
 </script>
+<style scoped>
+.modal-content {
+  width: auto;
+}
+</style>
