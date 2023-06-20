@@ -56,9 +56,11 @@
 </template>
 
 <script lang="ts">
+const repo = new SteamRepositoryAxios(axios);
 import Vue from "vue";
-import Games from "./response.json";
+import axios from "axios";
 import { Game } from "./Game";
+import { SteamRepositoryAxios } from "@/SteamRepositoryAxios";
 import UserModal from "./components/User-modal.vue";
 import FilterModal from "./components/Filter-modal.vue";
 import { GameFilter } from "./filters";
@@ -79,7 +81,7 @@ export default Vue.extend({
   },
   methods: {
     requestGames() {
-      this.gamesList = Games.response.games;
+      this.gamesList = repo.loadGames();
     },
     submitGame(name: string) {
       this.gamesList.push({ name: name, appid: 0, price: 0, genre: [] });

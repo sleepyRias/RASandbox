@@ -6,16 +6,27 @@
         <h1>Filters</h1>
         <div class="columns">
           <div class="column is-one-fourth">
-            <input
-              class="input"
-              type="text"
-              placeholder="Hersteller"
-              v-model="filter.company"
-            />
+            <div class="select">
+              <select name="Company" v-model="filter.company">
+                <option value="" selected disabled>
+                  Wähle einen Hersteller
+                </option>
+                <option value="Valve">Valve</option>
+                <option value="Adobe">Adobe</option>
+                <option value="343 Studios">343 Studios</option>
+                <option value="Paradox Interactive">Paradox Interactive</option>
+                <option value="CD Projekt Red">CD Projekt Red</option>
+                <option value="RA Micro Software AG">
+                  RA Micro Software AG
+                </option>
+                <option value="Respawn">Respawn</option>
+              </select>
+            </div>
           </div>
           <div class="column is-one-fourth">
             <div class="select">
               <select name="Genre" v-model="filter.genre">
+                <option value="" selected disabled>Wähle ein Genre</option>
                 <option value="Horror">Horror</option>
                 <option value="Abenteuer">Abenteuer</option>
                 <option value="Physik">Physik</option>
@@ -106,3 +117,8 @@ export default Vue.extend({
   methods: {},
 });
 </script>
+<style scoped>
+.modal-content {
+  width: auto;
+}
+</style>
