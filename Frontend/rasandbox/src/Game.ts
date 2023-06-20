@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 export interface Game {
   appid: number;
   name: string;
