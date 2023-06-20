@@ -35,12 +35,13 @@
         <div
           class="gameBox"
           v-if="
-            ((filter.company === undefined ||
-              filter.company === game.company) &&
-              (filter.genre === undefined || isInGenre(game.genre)) &&
-              filter.releaseDate === undefined) ||
-            (filter.releaseDate === game.releaseDate &&
-              isInPricerange(game.price))
+            filter.company === undefined ||
+            filter.company === game.company ||
+            filter.genre === undefined ||
+            isInGenre(game.genre) ||
+            filter.releaseDate === undefined ||
+            filter.releaseDate === game.releaseDate ||
+            isInPricerange(game.price)
           "
         >
           <ul>

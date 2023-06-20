@@ -13,7 +13,7 @@
                 "playtime_linux_forever": 14,
                 "company": "Valve",
                 "price": 20,
-                "releaseDate": "01.05.2004",
+                "releaseDate": "2004-05-01",
                 "genre": [
                     "Horror",
                     "Abenteuer",
@@ -32,7 +32,7 @@
                 "playtime_linux_forever": 0,
                 "company": "Adobe",
                 "price": 40,
-                "releaseDate": "26.09.2014",
+                "releaseDate": "2014-09-26",
                 "genre": [
                     "Abenteuer",
                     "Simulation",
@@ -51,7 +51,7 @@
                 "playtime_linux_forever": 25,
                 "company": "343 Studios",
                 "price": 14.99,
-                "releaseDate": "07.07.2007",
+                "releaseDate": "2007-07-07",
                 "genre": [
                     "Simulation",
                     "RPG",
@@ -71,7 +71,7 @@
                 "playtime_linux_forever": 0,
                 "company": "Paradox Interactive",
                 "price": 40,
-                "releaseDate": "07.08.2008",
+                "releaseDate": "2008-08-07",
                 "genre": [
                     "Krieg",
                     "Weltraum",
@@ -91,7 +91,7 @@
                 "playtime_linux_forever": 14,
                 "company": "CD Projekt Red",
                 "price": 50,
-                "releaseDate": "21.11.2020",
+                "releaseDate": "2020-11-21",
                 "genre": [
                     "Cyberpunk",
                     "Abenteuer",
@@ -112,7 +112,7 @@
                 "playtime_linux_forever": 5,
                 "company": "RA Micro Software AG",
                 "price": 2.99,
-                "releaseDate": "05.12.2012",
+                "releaseDate": "2012-12-05",
                 "genre": [
                     "Simulation",
                     "Aufbauspiel",
@@ -132,7 +132,7 @@
                 "playtime_linux_forever": 0,
                 "company": "Valve",
                 "price": 0,
-                "releaseDate": "25.06.2016",
+                "releaseDate": "2016-06-25",
                 "genre": [
                     "Krieg",
                     "FPS",
@@ -151,7 +151,7 @@
                 "playtime_linux_forever": 131,
                 "company": "Adobe",
                 "price": 0,
-                "releaseDate": "05.12.2012",
+                "releaseDate": "2012-12-05",
                 "genre": [
                     "Robert hat Spaß",
                     "Abenteuer",
@@ -171,7 +171,7 @@
                 "playtime_linux_forever": 652,
                 "company": "Respawn",
                 "price": 69.99,
-                "releaseDate": "04.05.2020",
+                "releaseDate": "2020-05-04",
                 "genre": [
                     "Story",
                     "Krieg",
