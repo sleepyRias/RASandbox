@@ -11,16 +11,11 @@
               type="text"
               placeholder="Hersteller"
               v-model="filter.company"
-              @input="$emit('filterChange', filter)"
             />
           </div>
           <div class="column is-one-fourth">
             <div class="select">
-              <select
-                name="Genre"
-                v-model="filter.genre"
-                @change="$emit('filterChange', filter)"
-              >
+              <select name="Genre" v-model="filter.genre">
                 <option value="Horror">Horror</option>
                 <option value="Abenteuer">Abenteuer</option>
                 <option value="Physik">Physik</option>
@@ -47,7 +42,6 @@
               max="20"
               step="1"
               v-model="filter.minPrice"
-              @change="$emit('filterChange', filter)"
             />
             {{ filter.minPrice }} €
             <span>Maximal Preis</span>
@@ -58,7 +52,6 @@
               max="100"
               step="1"
               v-model="filter.maxPrice"
-              @change="$emit('filterChange', filter)"
             />
             {{ filter.maxPrice }} €
           </div>
@@ -72,7 +65,6 @@
               min="1999-01-01"
               max="2100-12-31"
               v-model="filter.releaseDate"
-              @change="$emit('filterChange', filter)"
             />
           </div>
         </div>
@@ -86,7 +78,9 @@
       close
     </button>
     <footer class="modal-card-foot">
-      <button class="button is-success" @click="$emit('close')">Submit</button>
+      <button class="button is-success" @click="$emit('submit', filter)">
+        Submit
+      </button>
     </footer>
   </div>
 </template>

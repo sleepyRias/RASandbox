@@ -9,7 +9,7 @@
       v-if="showFilter"
       :class="{ 'is-active': showFilter }"
       @close="showFilter = false"
-      @filterChange="updateFilter"
+      @submit="updateFilter"
     />
     <h1 class="main-title">Sandbox Project</h1>
     <div class="columns">
@@ -35,13 +35,13 @@
         <div
           class="gameBox"
           v-if="
-            ((filter.company === undefined ||
-              filter.company === game.company) &&
-              (filter.genre === undefined || isInGenre(game.genre)) &&
-              filter.releaseDate === undefined) ||
+            filter.company === undefined ||
+            (filter.company === game.company && filter.genre === undefined) ||
+            (isInGenre(game.genre) && filter.releaseDate === undefined) ||
             (filter.releaseDate === game.releaseDate &&
-              ((filter.minPrice && filter.maxPrice === undefined) ||
-                isInPricerange(game.price)))
+              filter.minPrice === undefined &&
+              filter.maxPrice === undefined) ||
+            isInPricerange(game.price)
           "
         >
           <ul>
@@ -86,6 +86,7 @@ export default Vue.extend({
       this.gamesList.push({ name: name, appid: 0, price: 0, genre: [] });
     },
     updateFilter(filter: GameFilter) {
+      this.showFilter = false;
       Object.assign(this.filter, filter);
     },
     isInPricerange(price: number) {
