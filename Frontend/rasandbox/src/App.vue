@@ -56,10 +56,9 @@
 </template>
 
 <script lang="ts">
-const axios = new AxiosInstance();
 const repo = new SteamRepositoryAxios(axios);
 import Vue from "vue";
-import { AxiosInstance } from "axios";
+import axios from "axios";
 import { Game } from "./Game";
 import { SteamRepositoryAxios } from "@/SteamRepositoryAxios";
 import UserModal from "./components/User-modal.vue";
@@ -82,7 +81,7 @@ export default Vue.extend({
   },
   methods: {
     requestGames() {
-      repo.loadGames();
+      this.gamesList = repo.loadGames();
     },
     submitGame(name: string) {
       this.gamesList.push({ name: name, appid: 0, price: 0, genre: [] });

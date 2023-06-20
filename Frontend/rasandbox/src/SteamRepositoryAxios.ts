@@ -7,6 +7,6 @@ export class SteamRepositoryAxios
   implements SteamRepository
 {
   public loadGames() {
-    return Promise.resolve(Games);
+    return Promise.resolve(Games.response.games);
   }
 }

@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { AxiosRequestConfig, AxiosInstance } from "axios";
 
 export class AxiosRepository {
