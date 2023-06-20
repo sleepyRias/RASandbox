@@ -1,11 +1,8 @@
-import { Game } from "./Game";
 import Games from "./response.json";
-import { AxiosResponse } from "axios";
+import { SteamRepository } from "@/SteamRepository";
 
-export interface SteamRepositoryAxios {
-  getGame(): Promise<Game>;
-}
-
-export function loadGames() {
-  return Promise.resolve(Games);
+export class SteamRepositoryAxios implements SteamRepository {
+  public loadGames() {
+    return Promise.resolve(Games);
+  }
 }

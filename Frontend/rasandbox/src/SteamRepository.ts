@@ -1,6 +1,3 @@
-import { Game } from "./Game";
-
-export interface SteamRepositoryAxios {
-  getGame(): Promise<Game>;
+export interface SteamRepository {
   loadGames(): any;
 }
