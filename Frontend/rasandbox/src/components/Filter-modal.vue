@@ -10,16 +10,16 @@
               class="input"
               type="text"
               placeholder="Hersteller"
-              v-model="company"
-              @input="$emit('companyChange', company)"
+              v-model="filter.company"
+              @input="$emit('filterChange', filter)"
             />
           </div>
           <div class="column is-one-fourth">
             <div class="select">
               <select
                 name="Genre"
-                v-model="genre"
-                @change="$emit('genreChange', genre)"
+                v-model="filter.genre"
+                @change="$emit('filterChange', filter)"
               >
                 <option value="Horror">Horror</option>
                 <option value="Abenteuer">Abenteuer</option>
@@ -46,10 +46,10 @@
               min="0"
               max="20"
               step="1"
-              v-model="minPrice"
-              @change="$emit('minPriceChange', minPrice)"
+              v-model="filter.minPrice"
+              @change="$emit('filterChange', filter)"
             />
-            {{ minPrice }} €
+            {{ filter.minPrice }} €
             <span>Maximal Preis</span>
             <input
               type="range"
@@ -57,10 +57,10 @@
               min="30"
               max="100"
               step="1"
-              v-model="maxPrice"
-              @change="$emit('maxPriceChange', maxPrice)"
+              v-model="filter.maxPrice"
+              @change="$emit('filterChange', filter)"
             />
-            {{ maxPrice }} €
+            {{ filter.maxPrice }} €
           </div>
           <div class="column is-one-fourth">
             <label for="start">Release date:</label>
@@ -71,8 +71,8 @@
               value="2023-06-12"
               min="1999-01-01"
               max="2100-12-31"
-              v-model="releaseDate"
-              @change="$emit('releaseDateChange', releaseDate)"
+              v-model="filter.releaseDate"
+              @change="$emit('filterChange', filter)"
             />
           </div>
         </div>
@@ -90,6 +90,7 @@
 
 <script lang="ts">
 import Vue from "vue";
+import { GameFilter } from "@/filters";
 
 export default Vue.extend({
   name: "FilterModal",
@@ -102,6 +103,7 @@ export default Vue.extend({
       minPrice: 0,
       maxPrice: 0,
       releaseDate: "",
+      filter: {} as GameFilter,
     };
   },
   methods: {},

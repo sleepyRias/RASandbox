@@ -9,11 +9,7 @@
       v-if="showFilter"
       :class="{ 'is-active': showFilter }"
       @close="showFilter = false"
-      @companyChange="handelCompanyChange"
-      @genreChange="handelGenreChange"
-      @minPriceChange="handelminPriceChange"
-      @maxPriceChange="handelmaxPriceChange"
-      @releaseDateChange="handelreleaseDateChange"
+      @filterChange="updateFilter"
     />
     <h1 class="main-title">Sandbox Project</h1>
     <div class="columns">
@@ -39,9 +35,9 @@
         <span>{{ game.name }}</span>
         <ul
           v-if="
-            game.company === company &&
+            game.company === filter.company &&
             isInPricerange(game.price) &&
-            game.releaseDate === releaseDate &&
+            game.releaseDate === filter.releaseDate &&
             isInGenre(game.genre)
           "
         >
@@ -61,6 +57,7 @@ import Games from "./response.json";
 import { Game } from "./Game";
 import UserModal from "./components/User-modal.vue";
 import FilterModal from "./components/Filter-modal.vue";
+import { GameFilter } from "./filters";
 export default Vue.extend({
   name: "App",
   components: {
@@ -73,11 +70,7 @@ export default Vue.extend({
       gamesList: [] as Game[],
       showModal: false,
       showFilter: false,
-      company: "",
-      genre: "",
-      minPrice: 0,
-      maxPrice: 0,
-      releaseDate: "",
+      filter: {} as GameFilter,
     };
   },
   methods: {
@@ -87,30 +80,18 @@ export default Vue.extend({
     submitGame(name: string) {
       this.gamesList.push({ name: name, appid: 0, price: 0, genre: [] });
     },
-    handelCompanyChange(filter: string) {
-      this.company = filter;
-    },
-    handelGenreChange(filter: string) {
-      this.genre = filter;
-    },
-    handelminPriceChange(filter: number) {
-      this.minPrice = filter;
-    },
-    handelmaxPriceChange(filter: number) {
-      this.maxPrice = filter;
-    },
-    handelreleaseDateChange(filter: string) {
-      this.releaseDate = filter;
+    updateFilter(filter: GameFilter) {
+      this.filter = filter;
     },
     isInPricerange(price: number) {
-      if (price > this.minPrice && price < this.maxPrice) {
+      if (price > this.filter.minPrice && price < this.filter.maxPrice) {
         return true;
       } else {
         return false;
       }
     },
     isInGenre(genres: string[]) {
-      return genres.includes(this.genre);
+      return genres.includes(this.filter.genre);
     },
   },
   beforeMount() {
