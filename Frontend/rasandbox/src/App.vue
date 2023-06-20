@@ -35,13 +35,13 @@
         <div
           class="gameBox"
           v-if="
-            filter.company === undefined ||
-            filter.company === game.company ||
-            filter.genre === undefined ||
-            isInGenre(game.genre) ||
-            filter.releaseDate === undefined ||
-            filter.releaseDate === game.releaseDate ||
-            isInPricerange(game.price)
+            ((filter.company === undefined ||
+              filter.company === game.company) &&
+              (filter.genre === undefined || isInGenre(game.genre)) &&
+              filter.releaseDate === undefined) ||
+            (filter.releaseDate === game.releaseDate &&
+              ((filter.minPrice && filter.maxPrice === undefined) ||
+                isInPricerange(game.price)))
           "
         >
           <ul>
@@ -89,11 +89,7 @@ export default Vue.extend({
       Object.assign(this.filter, filter);
     },
     isInPricerange(price: number) {
-      if (price > this.filter.minPrice && price < this.filter.maxPrice) {
-        return true;
-      } else {
-        return false;
-      }
+      return price >= this.filter.minPrice && price <= this.filter.maxPrice;
     },
     isInGenre(genres: string[]) {
       return genres.includes(this.filter.genre);
