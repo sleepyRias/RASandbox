@@ -1,5 +1,5 @@
 import { AxiosRepository } from "./AxiosRepository";
-import Games from "./response.json";
+import { games } from "./response";
 import { SteamRepository } from "@/SteamRepository";
 
 export class SteamRepositoryAxios
@@ -7,6 +7,7 @@ export class SteamRepositoryAxios
   implements SteamRepository
 {
   public loadGames() {
-    return Promise.resolve(Games.response.games);
+    console.log(games);
+    return Promise.resolve(games);
   }
 }

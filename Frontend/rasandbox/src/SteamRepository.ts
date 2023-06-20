@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+import { Game } from "./Game";
 export interface SteamRepository {
-  loadGames(): any;
+  loadGames(): Game[];
 }
