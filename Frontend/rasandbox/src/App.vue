@@ -57,10 +57,11 @@
 
 <script lang="ts">
 const axios = new AxiosInstance();
-const repo = new SteamRepository(axios);
+const repo = new SteamRepositoryAxios(axios);
 import Vue from "vue";
 import { AxiosInstance } from "axios";
 import { Game } from "./Game";
+import { SteamRepositoryAxios } from "@/SteamRepositoryAxios";
 import UserModal from "./components/User-modal.vue";
 import FilterModal from "./components/Filter-modal.vue";
 import { GameFilter } from "./filters";
