@@ -2,6 +2,7 @@ import { AxiosResponse } from "axios";
 import { ArrayElement } from "../ArrayElement";
 import { JsonApiResponse } from "./JsonApiResponse";
 import { JsonApiResource } from "./JsonApiResource";
+import * as HttpStatus from "http-status-codes";
 
 export function mapResponse<T, M, R, RM>(
   response: AxiosResponse<JsonApiResponse<T, M, RM>>,
