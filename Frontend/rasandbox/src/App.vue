@@ -13,17 +13,21 @@
     />
     <h1 class="main-title">Sandbox Project</h1>
     <div class="columns">
-      <div class="colum is-one-fourth">
+      <div class="colum">
         <input type="text" class="input is-normal" v-model="inputText" />
       </div>
-      <div class="colum is-one-fourth">
+      <div class="colum">
         <button @click="submitGame(inputText)" class="button">Submit</button>
       </div>
-      <div class="colum is-one-fourth">
+      <div class="colum">
         <button @click="showModal = true" class="button">Show Modal</button>
       </div>
-      <div class="colum is-one-fourth">
+      <div class="colum">
         <button class="button" @click="showFilter = !showFilter">Filter</button>
+      </div>
+      <div class="colum">
+        <button class="button" @click="getGames">G A M E S</button>
+        <input class="input" v-model="amount" />
       </div>
     </div>
     <div class="columns is-gapless is-1-desktop is-multiline">
@@ -77,6 +81,7 @@ export default Vue.extend({
       showModal: false,
       showFilter: false,
       filter: {} as GameFilter,
+      amount: 0,
     };
   },
   methods: {
@@ -95,6 +100,9 @@ export default Vue.extend({
     },
     isInGenre(genres: string[]) {
       return genres.includes(this.filter.genre);
+    },
+    getGames(amount: number) {
+      repo.getGames(amount);
     },
   },
   beforeMount() {
