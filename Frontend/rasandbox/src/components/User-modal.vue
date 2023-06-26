@@ -12,31 +12,9 @@
             </div>
             <div class="column is-multiline">
               <span>Username: {{ username }}</span>
-              <button class="button" @click="changeUsername = true">
-                Change Username
-              </button>
-              <input v-if="changeUsername" v-model="username" class="input" />
-              <button
-                v-if="changeUsername"
-                @click="storeChanges"
-                class="button is-success"
-              >
-                Submit
-              </button>
             </div>
             <div class="column">
               <span>Name: {{ name }}</span>
-              <button @click="changeName = true" class="button">
-                Change Name
-              </button>
-              <input v-if="changeName" v-model="name" class="input" />
-              <button
-                v-if="changeName"
-                @click="storeChanges"
-                class="button is-success"
-              >
-                Submit
-              </button>
             </div>
           </div>
           <div v-else-if="name === ''">
@@ -48,6 +26,16 @@
                 @click="loadUserWithKey(username)"
               >
                 Load
+              </button>
+            </div>
+            <div class="column">
+              <h1>New User</h1>
+              <span>Username: </span>
+              <input class="input" v-model="newUser.username" />
+              <span>Name: </span>
+              <input class="input" v-model="newUser.name" />
+              <button class="button is-info" @click="createNewUser">
+                Create!
               </button>
             </div>
           </div>
@@ -65,23 +53,30 @@ export default Vue.extend({
   name: "UserModal",
   data() {
     return {
-      changeUsername: false,
-      changeName: false,
       username: "",
       name: "",
+      newUser: {
+        name: "",
+        username: "",
+      } as User,
     };
   },
   methods: {
-    storeChanges() {
+    createNewUser() {
       const user = {
-        name: this.name,
+        name: this.newUser.name,
+        username: this.newUser.username,
       };
-      localStorage.setItem(this.username, JSON.stringify(user));
+      localStorage.setItem(user.username, JSON.stringify(user));
+      console.log(user.username);
+      this.loadUserWithKey(user.username);
     },
     loadUserWithKey(key: string) {
       var user = {} as User;
       user = JSON.parse(localStorage.getItem(key));
       this.name = user.name;
+      this.username = user.username;
+      // we shouldnt do this like this but imma do it anyway
     },
   },
 });
