@@ -7,7 +7,7 @@ export class SteamRepositoryAxios
   extends AxiosRepository
   implements SteamRepository
 {
-  private basePath = "/api";
+  private basePath = "https://localhost:7091/api";
   public loadGames() {
     return games;
   }
