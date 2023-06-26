@@ -26,7 +26,7 @@
         <button class="button" @click="showFilter = !showFilter">Filter</button>
       </div>
       <div class="colum">
-        <button class="button" @click="getGames">G A M E S</button>
+        <button class="button" @click="getGames(amount)">G A M E S</button>
         <input class="input" v-model="amount" />
       </div>
     </div>
