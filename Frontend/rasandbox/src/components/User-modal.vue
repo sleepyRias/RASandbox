@@ -2,14 +2,67 @@
   <div class="modal">
     <div class="modal-background"></div>
     <div class="modal-content">
-      <div class="box">Hallo Robert!</div>
+      <div class="box">
+        <div class="columns">
+          <div class="column">
+            <figure class="image is-128x128">
+              <img src="https://bulma.io/images/placeholders/128x128.png" />
+            </figure>
+          </div>
+          <div class="column is-multiline">
+            <span>Username: {{ username }}</span>
+            <button class="button" @click="changeUsername = true">
+              Change Username
+            </button>
+            <input v-if="changeUsername" v-model="username" class="input" />
+            <button
+              v-if="changeUsername"
+              @click="storeChanges"
+              class="button is-success"
+            >
+              Submit
+            </button>
+          </div>
+          <div class="column">
+            <span>Name: {{ name }}</span>
+            <button @click="changeName = true" class="button">
+              Change Name
+            </button>
+            <input v-if="changeName" v-model="name" class="input" />
+            <button
+              v-if="changeName"
+              @click="storeChanges"
+              class="button is-success"
+            >
+              Submit
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
-    <button
-      class="modal-close is-large"
-      aria-label="close"
-      @click="$emit('close')"
-    >
-      close
-    </button>
+    <button class="modal-close is-large" @click="$emit('close')">close</button>
   </div>
 </template>
+<script lang="ts">
+import Vue from "vue";
+
+export default Vue.extend({
+  name: "UserModal",
+  data() {
+    return {
+      changeUsername: false,
+      changeName: false,
+      username: "",
+      name: "",
+    };
+  },
+  methods: {
+    storeChanges() {
+      const user = {
+        name: this.name,
+      };
+      localStorage.setItem(this.username, JSON.stringify(user));
+    },
+  },
+});
+</script>
