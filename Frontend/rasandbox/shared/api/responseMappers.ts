@@ -22,13 +22,6 @@ export function mapResponse<T, M, R, RM>(
   }
 }
 
-export function mapResponseSimple<T, R>(
-  response: AxiosResponse<JsonApiResponse<T>>,
-  mapper: (value: T extends any[] ? ArrayElement<T> : T) => R
-) {
-  return mapResponse(response, (resource) => mapper(resource.attributes));
-}
-
 export function mapResponseAxios<T>(response: AxiosResponse<T>): T {
   if (response.status === HttpStatus.StatusCodes.NO_CONTENT) {
     // @ts-ignore
