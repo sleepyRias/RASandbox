@@ -13,7 +13,7 @@
     />
     <div class="main-header">
       <h1 class="main-title">Sandbox Project</h1>
-      <button class="button is-link">User</button>
+      <button @click="showModal = true" class="button is-link">User</button>
     </div>
     <div class="columns">
       <div class="column">
@@ -22,11 +22,6 @@
       <div class="column">
         <button @click="submitGame(inputText)" class="button is-success">
           Submit
-        </button>
-      </div>
-      <div class="column">
-        <button @click="showModal = true" class="button is-info">
-          Show Modal
         </button>
       </div>
       <div class="column">
