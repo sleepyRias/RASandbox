@@ -101,8 +101,8 @@ export default Vue.extend({
     isInGenre(genres: string[]) {
       return genres.includes(this.filter.genre);
     },
-    getGames(amount: number) {
-      repo.getGames(amount);
+    async getGames(amount: number) {
+      this.gamesList = await repo.getGames(amount);
     },
   },
   beforeMount() {
