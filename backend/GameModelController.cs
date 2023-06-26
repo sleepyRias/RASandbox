@@ -17,14 +17,14 @@ namespace backend.Controllers
             _dbContext = dbContext;
         }
 
-        //GET api/game
+        //GET api/GameModel
         [HttpGet]
         public async Task<ActionResult<List<Game>>> Get()
         {
             return await _dbContext.Game.ToListAsync();
         }
 
-        // GET api/Game/{email}
+        // GET api/GameModel/{email}
         [Authorize]
         [HttpGet("{id}")]
         public async Task<ActionResult<Game>> Get(int id)
@@ -32,7 +32,7 @@ namespace backend.Controllers
             return await _dbContext.Game.FindAsync(id);
         }
 
-        // POST api/game
+        // POST api/GameModel
         [Authorize]
         [HttpPost]
         public async Task Post(Game model)

@@ -65,13 +65,13 @@ namespace backend
             app.UseRouting();
             app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
             app.UseSpaStaticFiles();
-            //app.UseSpa(configuration: builder =>
-            //{
-            //    if (env.IsDevelopment())
-            //    {
-            //        builder.UseProxyToSpaDevelopmentServer("http://localhost:8087");
-            //    }
-            //});
+            app.UseSpa(configuration: builder =>
+            {
+                if (env.IsDevelopment())
+                {
+                    builder.UseProxyToSpaDevelopmentServer("http://localhost:8087");
+                }
+            });
         }
     }
 }

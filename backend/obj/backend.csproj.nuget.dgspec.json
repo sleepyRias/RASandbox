@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\NMenge\\Source\\Repos\\sleepyRias\\RASandbox\\backend\\backend.csproj": {}
+    "C:\\Users\\NMenge\\source\\repos\\sleepyRias\\RASandbox\\backend\\backend.csproj": {}
   },
   "projects": {
-    "C:\\Users\\NMenge\\Source\\Repos\\sleepyRias\\RASandbox\\backend\\backend.csproj": {
+    "C:\\Users\\NMenge\\source\\repos\\sleepyRias\\RASandbox\\backend\\backend.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\NMenge\\Source\\Repos\\sleepyRias\\RASandbox\\backend\\backend.csproj",
+        "projectUniqueName": "C:\\Users\\NMenge\\source\\repos\\sleepyRias\\RASandbox\\backend\\backend.csproj",
         "projectName": "backend",
-        "projectPath": "C:\\Users\\NMenge\\Source\\Repos\\sleepyRias\\RASandbox\\backend\\backend.csproj",
+        "projectPath": "C:\\Users\\NMenge\\source\\repos\\sleepyRias\\RASandbox\\backend\\backend.csproj",
         "packagesPath": "C:\\Users\\NMenge\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\NMenge\\Source\\Repos\\sleepyRias\\RASandbox\\backend\\obj\\",
+        "outputPath": "C:\\Users\\NMenge\\source\\repos\\sleepyRias\\RASandbox\\backend\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\NMenge\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -60,6 +60,18 @@
             "Microsoft.Extensions.Configuration": {
               "target": "Package",
               "version": "[3.1.7, )"
+            },
+            "Swashbuckle.AspNetCore.Swagger": {
+              "target": "Package",
+              "version": "[6.5.0, )"
+            },
+            "Swashbuckle.AspNetCore.SwaggerGen": {
+              "target": "Package",
+              "version": "[6.5.0, )"
+            },
+            "Swashbuckle.AspNetCore.SwaggerUI": {
+              "target": "Package",
+              "version": "[6.5.0, )"
             }
           },
           "imports": [
