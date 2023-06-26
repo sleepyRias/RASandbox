@@ -101,7 +101,7 @@
 
 <script lang="ts">
 import Vue from "vue";
-import { GameFilter } from "@/filters";
+import { GameFilter } from "../filters";
 
 export default Vue.extend({
   name: "FilterModal",
