@@ -18,12 +18,15 @@ namespace backend.Controllers
             _dataProvider = dataProvider;
         }
 
-
+        // default returns entire DB
         [HttpGet(Endpoints.GameController.GetGames, Name = "GetGames")]
-        public IEnumerable<Game> GetGames()
+        public IEnumerable<Game> GetGames(int amount = 0)
         {
-            var games = _dataProvider.Games.ToList();
-            return games;
+            if(amount > 0)
+            {
+                return _dataProvider.Games.Take(amount).ToList();
+            }
+            return _dataProvider.Games.ToList();
         }
 
         [HttpPut("Games/{id}")]
