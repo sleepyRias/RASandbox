@@ -128,14 +128,9 @@ export default Vue.extend({
   font-size: larger;
   font-weight: 600;
 }
-.main-input {
-  margin-bottom: 0.75rem;
-  margin-left: 0.5rem;
-}
 .gameBox {
   border: 1px solid black;
-  margin: 0 auto;
-  margin-top: 10px;
+  margin: 10px 5px 0px 5px;
   display: flex;
   justify-content: center;
   align-items: center;
