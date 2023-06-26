@@ -12,7 +12,7 @@ export function mapResponse<T, M, R, RM>(
     resource: JsonApiResource<T extends any[] ? ArrayElement<T> : T, M>
   ) => R
 ): T extends any[] ? R[] : R {
-  if (response.status === HttpStatus.NO_CONTENT) {
+  if (response.status === HttpStatus.StatusCodes.NO_CONTENT) {
     // @ts-ignore
     return;
   } else {
