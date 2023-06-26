@@ -1,6 +1,6 @@
 /* eslint-disable */
 import { AxiosRequestConfig, AxiosInstance, AxiosResponse } from "axios";
-import { mapResponseSimple } from "../shared/api/responseMappers";
+import { mapResponseAxios } from "../shared/api/responseMappers";
 
 type ResponseMapper<R> = (response: AxiosResponse) => R;
 
@@ -57,6 +57,6 @@ export class AxiosRepository {
   }
 
   protected transformResponse(response: AxiosResponse): any {
-    return mapResponseSimple(response, (data: any) => data);
+    return mapResponseAxios(response);
   }
 }

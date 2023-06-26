@@ -28,3 +28,12 @@ export function mapResponseSimple<T, R>(
 ) {
   return mapResponse(response, (resource) => mapper(resource.attributes));
 }
+
+export function mapResponseAxios<T>(response: AxiosResponse<T>): T {
+  if (response.status === HttpStatus.StatusCodes.NO_CONTENT) {
+    // @ts-ignore
+    return;
+  } else {
+    return response.data;
+  }
+}
