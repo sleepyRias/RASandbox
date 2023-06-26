@@ -11,7 +11,9 @@ export class SteamRepositoryAxios
   public loadGames() {
     return games;
   }
-  public getGames() {
-    return this.sendGet<Game[]>(`${this.basePath}/GameController/Games`);
+  public getGames(amount: number) {
+    return this.sendGet<Game[]>(`${this.basePath}/GameController/Games`, {
+      params: amount,
+    });
   }
 }

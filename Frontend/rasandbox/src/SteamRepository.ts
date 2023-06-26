@@ -3,5 +3,5 @@ import { Game } from "./Game";
 /* eslint-disable @typescript-eslint/no-explicit-any */
 export interface SteamRepository {
   loadGames(): any;
-  getGames(): Promise<Game[]>;
+  getGames(amount: number): Promise<Game[]>;
 }
