@@ -89,7 +89,7 @@ export default Vue.extend({
       this.gamesList = repo.loadGames();
     },
     submitGame(name: string) {
-      this.gamesList.push({ name: name, appid: 0, price: 0, genre: [] });
+      this.gamesList.push({ name: name, id: 0, price: 0, genre: 0 });
     },
     updateFilter(filter: GameFilter) {
       this.showFilter = false;
