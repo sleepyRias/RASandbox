@@ -11,22 +11,31 @@
       @close="showFilter = false"
       @submit="updateFilter"
     />
-    <h1 class="main-title">Sandbox Project</h1>
+    <div class="main-header">
+      <h1 class="main-title">Sandbox Project</h1>
+      <button class="button is-link">User</button>
+    </div>
     <div class="columns">
-      <div class="colum is-one-fourth">
+      <div class="column">
         <input type="text" class="input is-normal" v-model="inputText" />
       </div>
-      <div class="colum is-one-fourth">
-        <button @click="submitGame(inputText)" class="button">Submit</button>
+      <div class="column">
+        <button @click="submitGame(inputText)" class="button is-success">
+          Submit
+        </button>
       </div>
-      <div class="colum is-one-fourth">
-        <button @click="showModal = true" class="button">Show Modal</button>
+      <div class="column">
+        <button @click="showModal = true" class="button is-info">
+          Show Modal
+        </button>
       </div>
-      <div class="colum is-one-fourth">
-        <button class="button" @click="showFilter = !showFilter">Filter</button>
+      <div class="column">
+        <button class="button is-warning" @click="showFilter = !showFilter">
+          Filter
+        </button>
       </div>
     </div>
-    <div class="columns is-gapless is-1-desktop is-multiline">
+    <div class="columns is-gapless is-multiline">
       <div
         class="column is-one-third"
         v-for="game in gamesList"
@@ -60,7 +69,7 @@ const repo = new SteamRepositoryAxios(axios);
 import Vue from "vue";
 import axios from "axios";
 import { Game } from "./Game";
-import { SteamRepositoryAxios } from "@/SteamRepositoryAxios";
+import { SteamRepositoryAxios } from "./SteamRepositoryAxios";
 import UserModal from "./components/User-modal.vue";
 import FilterModal from "./components/Filter-modal.vue";
 import { GameFilter } from "./filters";
@@ -104,28 +113,20 @@ export default Vue.extend({
 </script>
 
 <style>
+.main-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin: 5px 5px 60px 5px;
+}
 .main-title {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
-  margin-bottom: 1rem;
-}
-.SBinput {
-  border: none;
-  border-radius: 10px;
-  background-color: lightgrey;
-  padding-left: 5px;
-  height: 25px;
-}
-.SBbutton {
-  height: 27px;
-  margin-left: 5px;
-  border: none;
-  border-radius: 10px;
-  background-color: lightgrey;
+  font-size: larger;
+  font-weight: 600;
 }
 .main-input {
   margin-bottom: 0.75rem;
