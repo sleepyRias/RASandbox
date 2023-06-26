@@ -92,6 +92,9 @@
       <button class="button is-success" @click="$emit('submit', filter)">
         Submit
       </button>
+      <button class="button is-danger" @click="$emit('submit', {})">
+        Clear Filter
+      </button>
     </footer>
   </div>
 </template>

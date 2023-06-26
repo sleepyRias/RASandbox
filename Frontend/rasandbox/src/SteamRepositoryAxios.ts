@@ -10,9 +10,8 @@ export class SteamRepositoryAxios
   private basePath = "/api";
   public loadGames() {
     return games;
-    // localhost:xxxx/api/games
   }
   public getGames() {
-    return this.sendGet<Game[]>(`${this.basePath}/games`);
+    return this.sendGet<Game[]>(`${this.basePath}/GameController/Games`);
   }
 }
