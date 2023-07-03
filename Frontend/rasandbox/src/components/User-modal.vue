@@ -10,7 +10,7 @@
                 <img src="https://bulma.io/images/placeholders/128x128.png" />
               </figure>
             </div>
-            <div class="column is-multiline">
+            <div class="columns is-multiline">
               <span>Username: {{ username }}</span>
             </div>
             <div class="column">
@@ -23,6 +23,25 @@
                   {{ game.name }}
                 </li>
               </ul>
+              <form class="column">
+                <input
+                  id="darkmode"
+                  type="radio"
+                  value="darkmode"
+                  v-model="colorScheme"
+                />
+                <label for="darkmode">Darkmode</label> <br />
+                <input
+                  id="lightmode"
+                  type="radio"
+                  value="lightmode"
+                  v-model="colorScheme"
+                />
+                <label for="lightmode">Lightmode</label> <br />
+              </form>
+              <button class="button is-info" @click="saveUserWithKey(username)">
+                Save
+              </button>
             </div>
           </div>
           <div v-else-if="name === ''">
@@ -65,6 +84,7 @@ export default Vue.extend({
       username: "",
       name: "",
       favoriteGamesList: [] as Game[],
+      colorScheme: "",
       newUser: {
         name: "",
         username: "",
@@ -91,7 +111,16 @@ export default Vue.extend({
       this.name = user.name;
       this.username = user.username;
       this.favoriteGamesList = user.favoriteGamesList;
+      this.colorScheme = user.colorScheme;
       // we shouldnt do this like this but imma do it anyway
+    },
+    saveUserWithKey(key: string) {
+      var user = {} as User;
+      user.name = this.name;
+      user.username = this.username;
+      user.favoriteGamesList = this.favoriteGamesList;
+      user.colorScheme = this.colorScheme;
+      localStorage.setItem(key, JSON.stringify(user));
     },
   },
   props: {
