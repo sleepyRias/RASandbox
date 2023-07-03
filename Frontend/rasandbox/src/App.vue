@@ -28,6 +28,21 @@
         <button class="button is-warning" @click="showFilter = !showFilter">
           Filter
         </button>
+      <div class="colum">
+        <input type="text" class="input is-normal" v-model="inputText" />
+      </div>
+      <div class="colum">
+        <button @click="submitGame(inputText)" class="button">Submit</button>
+      </div>
+      <div class="colum">
+        <button @click="showModal = true" class="button">Show Modal</button>
+      </div>
+      <div class="colum">
+        <button class="button" @click="showFilter = !showFilter">Filter</button>
+      </div>
+      <div class="colum">
+        <button class="button" @click="getGames(amount)">G A M E S</button>
+        <input class="input" v-model="amount" />
       </div>
     </div>
     <div class="columns is-gapless is-multiline">
@@ -81,6 +96,7 @@ export default Vue.extend({
       showModal: false,
       showFilter: false,
       filter: {} as GameFilter,
+      amount: 0,
     };
   },
   methods: {
@@ -88,7 +104,7 @@ export default Vue.extend({
       this.gamesList = repo.loadGames();
     },
     submitGame(name: string) {
-      this.gamesList.push({ name: name, appid: 0, price: 0, genre: [] });
+      this.gamesList.push({ name: name, id: 0, price: 0, genre: 0 });
     },
     updateFilter(filter: GameFilter) {
       this.showFilter = false;
@@ -99,6 +115,9 @@ export default Vue.extend({
     },
     isInGenre(genres: string[]) {
       return genres.includes(this.filter.genre);
+    },
+    async getGames(amount: number) {
+      this.gamesList = await repo.getGames(amount);
     },
   },
   beforeMount() {
