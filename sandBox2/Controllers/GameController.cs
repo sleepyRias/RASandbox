@@ -28,5 +28,20 @@ namespace backend.Controllers
             }
             return _dataProvider.Games.ToList();
         }
+
+        [HttpPost("Games")]
+        public IActionResult CreateGame([FromBody] Game game)
+        {
+            if (game == null)
+            {
+                return BadRequest(); // Ungültige Anforderung
+            }
+
+            _dataProvider.Games.Add(game); // Spiel der Datenquelle hinzufügen
+            _dataProvider.SaveChanges(); // Speichere die Änderungen in der Datenbank
+
+            return CreatedAtRoute("GetGameById", new { id = game.Id }, game); // Erfolgreiches Erstellen mit 201 Created-Status und dem erstellten Spiel als Antwort
+        }
+
     }
 }
