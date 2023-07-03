@@ -24,12 +24,12 @@
                 </li>
               </ul>
               <select class="column select" v-model="colorScheme">
-                <option value="darkmode">Darkmode</option>
-                <option value="lightmode">Lightmode</option>
+                <option :value="true">Darkmode</option>
+                <option :value="false">Lightmode</option>
               </select>
               <button
                 class="button is-info"
-                @click="$emit('updateColorScheme')"
+                @click="$emit('updateColorScheme', colorScheme)"
               >
                 Save
               </button>
@@ -104,14 +104,7 @@ export default Vue.extend({
       this.favoriteGamesList = user.favoriteGamesList;
       this.colorScheme = user.colorScheme;
       // we shouldnt do this like this but imma do it anyway
-    },
-    saveUserWithKey(key: string) {
-      var user = {} as User;
-      user.name = this.name;
-      user.username = this.username;
-      user.favoriteGamesList = this.favoriteGamesList;
-      user.colorScheme = this.colorScheme;
-      localStorage.setItem(key, JSON.stringify(user));
+      this.$emit("updateColorScheme", this.colorScheme);
     },
   },
   props: {

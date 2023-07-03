@@ -120,8 +120,8 @@ export default Vue.extend({
     addGameToFavorites(game: Game) {
       this.favGameList.push(game);
     },
-    toggleDarkmode() {
-      this.darkmode = !this.darkmode;
+    toggleDarkmode(mode: boolean) {
+      this.darkmode = mode;
     },
   },
   beforeMount() {
