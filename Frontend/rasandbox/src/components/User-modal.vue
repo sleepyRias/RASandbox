@@ -23,23 +23,14 @@
                   {{ game.name }}
                 </li>
               </ul>
-              <form class="column">
-                <input
-                  id="darkmode"
-                  type="radio"
-                  value="darkmode"
-                  v-model="colorScheme"
-                />
-                <label for="darkmode">Darkmode</label> <br />
-                <input
-                  id="lightmode"
-                  type="radio"
-                  value="lightmode"
-                  v-model="colorScheme"
-                />
-                <label for="lightmode">Lightmode</label> <br />
-              </form>
-              <button class="button is-info" @click="saveUserWithKey(username)">
+              <select class="column select" v-model="colorScheme">
+                <option value="darkmode">Darkmode</option>
+                <option value="lightmode">Lightmode</option>
+              </select>
+              <button
+                class="button is-info"
+                @click="$emit('updateColorScheme')"
+              >
                 Save
               </button>
             </div>

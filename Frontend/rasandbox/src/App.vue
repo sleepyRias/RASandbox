@@ -1,10 +1,11 @@
 <template>
-  <div>
+  <div :class="{ 'is-darkmode': darkmode }">
     <user-modal
       v-if="showModal"
       :class="{ 'is-active': showModal }"
       :favGameList="favGameList"
       @close="showModal = false"
+      @updateColorScheme="toggleDarkmode"
     />
     <filter-modal
       v-if="showFilter"
@@ -93,6 +94,7 @@ export default Vue.extend({
       filter: {} as GameFilter,
       amount: 0,
       favGameList: [] as Game[],
+      darkmode: false,
     };
   },
   methods: {
@@ -117,6 +119,9 @@ export default Vue.extend({
     },
     addGameToFavorites(game: Game) {
       this.favGameList.push(game);
+    },
+    toggleDarkmode() {
+      this.darkmode = !this.darkmode;
     },
   },
   beforeMount() {
@@ -151,5 +156,9 @@ export default Vue.extend({
 }
 .favButton {
   margin-left: 20px;
+}
+.is-darkmode {
+  background-color: black;
+  color: white;
 }
 </style>
