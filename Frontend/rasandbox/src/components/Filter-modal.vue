@@ -90,6 +90,7 @@
     </button>
     <footer class="modal-card-foot">
       <button class="button is-success" @click="$emit('submit', filter)">
+        <!-- funktion nutzen um 2 events zu senden -->
         Submit
       </button>
       <button class="button is-danger" @click="$emit('submit', {})">
