@@ -43,5 +43,20 @@ namespace backend.Controllers
             return CreatedAtRoute("GetGameById", new { id = game.Id }, game); // Erfolgreiches Erstellen mit 201 Created-Status und dem erstellten Spiel als Antwort
         }
 
+
+        [HttpDelete("Games/{id}")]
+        public IActionResult DeleteGame(int id)
+        {
+            var game = _dataProvider.Games.FirstOrDefault(g => g.Id == id);
+            if (game == null)
+            {
+                return NotFound(); // Falls das Spiel mit der angegebenen ID nicht gefunden wurde
+            }
+
+            _dataProvider.Games.Remove(game); // Spiel aus der Datenquelle entfernen
+            _dataProvider.SaveChanges(); // Speichere die Änderungen in der Datenbank
+
+            return NoContent(); // Erfolgreiches Löschen (kein Inhalt zurückgegeben)
+        }
     }
 }
