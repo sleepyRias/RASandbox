@@ -28,17 +28,6 @@
         <button class="button is-warning" @click="showFilter = !showFilter">
           Filter
         </button>
-      <div class="colum">
-        <input type="text" class="input is-normal" v-model="inputText" />
-      </div>
-      <div class="colum">
-        <button @click="submitGame(inputText)" class="button">Submit</button>
-      </div>
-      <div class="colum">
-        <button @click="showModal = true" class="button">Show Modal</button>
-      </div>
-      <div class="colum">
-        <button class="button" @click="showFilter = !showFilter">Filter</button>
       </div>
       <div class="colum">
         <button class="button" @click="getGames(amount)">G A M E S</button>
@@ -55,7 +44,6 @@
           class="gameBox"
           v-if="
             (filter.company === undefined || filter.company === game.company) &&
-            (filter.genre === undefined || isInGenre(game.genre)) &&
             (filter.releaseDate === undefined ||
               filter.releaseDate === game.releaseDate) &&
             ((filter.minPrice === undefined && filter.maxPrice === undefined) ||

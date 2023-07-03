@@ -72,6 +72,8 @@ export default Vue.extend({
     },
     loadUserWithKey(key: string) {
       var user = {} as User;
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
       user = JSON.parse(localStorage.getItem(key));
       this.name = user.name;
       this.username = user.username;
