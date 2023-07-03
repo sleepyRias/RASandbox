@@ -58,5 +58,28 @@ namespace backend.Controllers
 
             return NoContent(); // Erfolgreiches Löschen (kein Inhalt zurückgegeben)
         }
+
+        [HttpPut("Games/{id}")]
+        public IActionResult UpdateGame(int id, [FromBody] Game updatedGame)
+        {
+            var game = _dataProvider.Games.FirstOrDefault(g => g.Id == id);
+            if (game == null)
+            {
+                return NotFound(); // Falls das Spiel mit der angegebenen ID nicht gefunden wurde
+            }
+
+            // Aktualisiere die Eigenschaften des Spiels mit den Werten aus updatedGame
+            game.Name = updatedGame.Name;
+            game.Genre = updatedGame.Genre;
+            game.Company = updatedGame.Company;
+            game.Price = updatedGame.Price;
+            game.ReleaseDate = updatedGame.ReleaseDate;
+
+            // Speichere die Änderungen in der Datenbank
+            _dataProvider.SaveChanges();
+
+            return Ok(); // Erfolgreiche Aktualisierung
+        }
+
     }
 }
