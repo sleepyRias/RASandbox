@@ -68,7 +68,6 @@ export default Vue.extend({
         username: this.newUser.username,
       };
       localStorage.setItem(user.username, JSON.stringify(user));
-      console.log(user.username);
       this.loadUserWithKey(user.username);
     },
     loadUserWithKey(key: string) {
