@@ -16,6 +16,14 @@
             <div class="column">
               <span>Name: {{ name }}</span>
             </div>
+            <div class="column">
+              <ul>
+                Favorite Games:
+                <li v-for="game in favoriteGamesList" :key="game.name">
+                  {{ game.name }}
+                </li>
+              </ul>
+            </div>
           </div>
           <div v-else-if="name === ''">
             <div class="column">
@@ -47,6 +55,7 @@
 </template>
 <script lang="ts">
 import Vue from "vue";
+import { Game } from "../Game";
 import { User } from "../User";
 
 export default Vue.extend({
@@ -55,17 +64,21 @@ export default Vue.extend({
     return {
       username: "",
       name: "",
+      favoriteGamesList: [] as Game[],
       newUser: {
         name: "",
         username: "",
+        favoriteGamesList: [] as Game[],
       } as User,
     };
   },
   methods: {
     createNewUser() {
+      this.newUser.favoriteGamesList = this.favGameList;
       const user = {
         name: this.newUser.name,
         username: this.newUser.username,
+        favoriteGamesList: this.newUser.favoriteGamesList,
       };
       localStorage.setItem(user.username, JSON.stringify(user));
       this.loadUserWithKey(user.username);
@@ -77,7 +90,14 @@ export default Vue.extend({
       user = JSON.parse(localStorage.getItem(key));
       this.name = user.name;
       this.username = user.username;
+      this.favoriteGamesList = user.favoriteGamesList;
       // we shouldnt do this like this but imma do it anyway
+    },
+  },
+  props: {
+    favGameList: {
+      default: [],
+      type: [],
     },
   },
 });

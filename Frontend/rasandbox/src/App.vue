@@ -3,6 +3,7 @@
     <user-modal
       v-if="showModal"
       :class="{ 'is-active': showModal }"
+      :favGameList="favGameList"
       @close="showModal = false"
     />
     <filter-modal
@@ -56,6 +57,12 @@
             <li>{{ game.company }}</li>
             <li>{{ game.releaseDate }}</li>
           </ul>
+          <button
+            class="button is-warning favButton"
+            @click="addGameToFavorites(game)"
+          >
+            Favorite
+          </button>
         </div>
       </div>
     </div>
@@ -85,6 +92,7 @@ export default Vue.extend({
       showFilter: false,
       filter: {} as GameFilter,
       amount: 0,
+      favGameList: [] as Game[],
     };
   },
   methods: {
@@ -106,6 +114,9 @@ export default Vue.extend({
     },
     async getGames(amount: number) {
       this.gamesList = await repo.getGames(amount);
+    },
+    addGameToFavorites(game: Game) {
+      this.favGameList.push(game);
     },
   },
   beforeMount() {
@@ -137,5 +148,8 @@ export default Vue.extend({
   justify-content: center;
   align-items: center;
   border-radius: 20px;
+}
+.favButton {
+  margin-left: 20px;
 }
 </style>
