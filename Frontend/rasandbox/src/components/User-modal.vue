@@ -81,7 +81,6 @@ export default Vue.extend({
   },
   methods: {
     createNewUser() {
-      this.newUser.favoriteGamesList = this.favGameList;
       const user = {
         name: this.newUser.name,
         username: this.newUser.username,
@@ -105,12 +104,6 @@ export default Vue.extend({
       this.$store.dispatch("setTheme", this.colorScheme);
     },
   },
-  props: {
-    favGameList: {
-      default: [],
-      type: [],
-    },
-  },
   computed: {
     themeClass() {
       const theme = this.$store.getters.getTheme;
@@ -128,4 +121,3 @@ export default Vue.extend({
   },
 });
 </script>
-../../shared/interfaces/Game ../../shared/interfaces/User
