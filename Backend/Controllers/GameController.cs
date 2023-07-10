@@ -1,6 +1,6 @@
-using Microsoft.AspNetCore.Mvc;
-using backend.Model;
 using backend.DataProvider;
+using backend.Model;
+using Microsoft.AspNetCore.Mvc;
 
 namespace backend.Controllers
 {
@@ -18,16 +18,71 @@ namespace backend.Controllers
             _dataProvider = dataProvider;
         }
 
-        // default returns entire DB
+        // by default returns 54 entries, if amount == 0, return all
+        //      this will introduce a bug when you filter for exactly 54 games (amount == 54)
+        //      in this case the amount filter will not work and it returns all entries
         [HttpGet(Endpoints.GameController.GetGames, Name = "GetGames")]
-        public IEnumerable<Game> GetGames(int amount = 0)
+        public IEnumerable<Game> GetGames(int amount = 54, string filter = "", int gFilter = -1, float priceFilter = -1, string companyFilter = "", string minRDFilter = "", string maxRDFilter = "")
         {
-            if(amount > 0)
+            var games = _dataProvider.Games.AsQueryable();
+
+            bool f = false;
+            int amountBackup = 0;
+            if (amount != 54)
             {
-                return _dataProvider.Games.Take(amount).ToList();
+                f = true;
+                amountBackup = amount;
             }
-            return _dataProvider.Games.ToList();
+
+            if (!string.IsNullOrEmpty(filter))
+            {
+                games = games.Where(g => g.Name.Contains(filter));
+                amount = 0; 
+            }
+
+            if (gFilter != -1)
+            {
+                games = games.Where(g => g.Genre == gFilter);
+                amount = 0;
+            }
+
+            if (priceFilter != -1)
+            {
+                games = games.Where(g => g.Price == priceFilter);
+                amount = 0;
+            }
+
+            if (!string.IsNullOrEmpty(companyFilter))
+            {
+                games = games.Where(g => g.Company.Contains(companyFilter));
+                amount = 0;
+            }
+
+            if (!string.IsNullOrEmpty(minRDFilter))
+            {
+                games = games.Where(g => string.Compare(g.ReleaseDate, minRDFilter) >= 0);
+                amount = 0;
+            }
+
+            if (!string.IsNullOrEmpty(maxRDFilter))
+            {
+                games = games.Where(g => string.Compare(g.ReleaseDate, maxRDFilter) <= 0);
+                amount = 0;
+            }
+            if(f)
+            {
+                games = games.Take(amountBackup);
+            }
+            if (amount > 0 && !f)
+            {
+                games = games.Take(amount);
+            }
+
+            return games.ToList();
         }
+
+
+
 
         [HttpPost("Games")]
         public IActionResult CreateGame([FromBody] Game game)
