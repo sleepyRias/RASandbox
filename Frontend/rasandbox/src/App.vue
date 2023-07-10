@@ -3,7 +3,6 @@
     <user-modal
       v-if="showModal"
       :class="{ 'is-active': showModal }"
-      :favGameList="favGameList"
       @close="showModal = false"
     />
     <filter-modal
@@ -19,9 +18,6 @@
       <button @click="showModal = true" class="button is-link">User</button>
     </div>
     <div class="columns">
-      <div class="column">
-        <input type="text" class="input is-normal" v-model="inputText" />
-      </div>
       <div class="column">
         <button @click="toggleTheme" class="button is-success">
           increment
@@ -89,17 +85,10 @@ export default Vue.extend({
   },
   data() {
     return {
-      inputText: "",
-      // kann weg
       gamesList: [] as Game[],
       showModal: false,
       showFilter: false,
       filter: null as GameFilter | null,
-      amount: 0,
-      // kann weg
-      favGameList: [] as Game[],
-      // kann raus
-      darkmode: false,
     };
   },
   methods: {
