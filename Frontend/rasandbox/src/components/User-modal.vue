@@ -98,8 +98,7 @@ export default Vue.extend({
       this.username = user.username;
       this.favoriteGamesList = user.favoriteGamesList;
       this.colorScheme = user.colorScheme;
-      // we shouldnt do this like this but imma do it anyway
-      this.$emit("updateColorScheme", this.colorScheme);
+      this.$store.dispatch("setTheme", user.colorScheme);
     },
     toggleTheme() {
       const newTheme =
