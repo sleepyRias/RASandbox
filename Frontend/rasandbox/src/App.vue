@@ -162,12 +162,8 @@ export default Vue.extend({
   font-weight: 600;
 }
 .gameBox {
-  //rober mag flex nicht :(
   border: 1px solid black;
   margin: 10px 5px 0px 5px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 .favButton {
   margin-left: 20px;
