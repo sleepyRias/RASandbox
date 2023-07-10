@@ -127,6 +127,16 @@ export default Vue.extend({
           return "light-theme";
       }
     },
+    filteredList() {
+      const list = this.gamesList;
+      return list.filter(
+        (game: Game) =>
+          !this.filter ||
+          (this.filter.company === game.company &&
+            this.filter.releaseDate === game.releaseDate &&
+            this.isInPricerange(game.price))
+      );
+    },
   },
   beforeMount() {
     this.requestGames();
