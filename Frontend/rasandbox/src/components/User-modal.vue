@@ -2,15 +2,15 @@
   <div class="modal">
     <div class="modal-background"></div>
     <div class="modal-content">
-      <div class="box">
-        <div class="columns">
+      <div class="box" :class="themeClass">
+        <div class="columns is-multiline">
           <div v-if="name !== ''">
             <div class="column">
               <figure class="image is-128x128">
                 <img src="https://bulma.io/images/placeholders/128x128.png" />
               </figure>
             </div>
-            <div class="columns is-multiline">
+            <div class="column">
               <span>Username: {{ username }}</span>
             </div>
             <div class="column">
@@ -24,16 +24,11 @@
                 </li>
               </ul>
               <select class="column select" v-model="colorScheme">
-                <option :value="true">Darkmode</option>
-                <option :value="false">Lightmode</option>
+                <option :value="'dark-theme'">Darkmode</option>
+                <option :value="'light-theme'">Lightmode</option>
+                <option :value="'red-gradient-theme'">Red Gradient</option>
               </select>
-              <button
-                class="button is-info"
-                @click="$emit('updateColorScheme', colorScheme)"
-              >
-                Save
-              </button>
-              <!-- Darkmode in Vuex -->
+              <button class="button is-info" @click="setTheme">Save</button>
             </div>
           </div>
           <div v-else-if="name === ''">
@@ -66,8 +61,8 @@
 </template>
 <script lang="ts">
 import Vue from "vue";
-import { Game } from "../Game";
-import { User } from "../User";
+import { Game } from "../../shared/interfaces/Game";
+import { User } from "../../shared/interfaces/User";
 
 export default Vue.extend({
   name: "UserModal",
@@ -104,8 +99,10 @@ export default Vue.extend({
       this.username = user.username;
       this.favoriteGamesList = user.favoriteGamesList;
       this.colorScheme = user.colorScheme;
-      // we shouldnt do this like this but imma do it anyway
-      this.$emit("updateColorScheme", this.colorScheme);
+      this.$store.dispatch("setTheme", user.colorScheme);
+    },
+    setTheme() {
+      this.$store.dispatch("setTheme", this.colorScheme);
     },
   },
   props: {
@@ -114,5 +111,21 @@ export default Vue.extend({
       type: [],
     },
   },
+  computed: {
+    themeClass() {
+      const theme = this.$store.getters.getTheme;
+      switch (theme) {
+        case "light-theme":
+          return "light-theme";
+        case "dark-theme":
+          return "dark-theme";
+        case "red-gradient-theme":
+          return "red-gradient-theme";
+        default:
+          return "light-theme";
+      }
+    },
+  },
 });
 </script>
+../../shared/interfaces/Game ../../shared/interfaces/User

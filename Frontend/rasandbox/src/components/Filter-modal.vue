@@ -2,7 +2,7 @@
   <div class="modal">
     <div class="modal-background"></div>
     <div class="modal-content">
-      <div class="box">
+      <div class="box" :class="themeClass">
         <h1>Filters</h1>
         <div class="columns">
           <div class="column is-one-fourth">
@@ -88,7 +88,7 @@
     >
       close
     </button>
-    <footer class="modal-card-foot">
+    <footer class="modal-card-foot" :class="themeClass">
       <button class="button is-success" @click="$emit('submit', filter)">
         <!-- funktion nutzen um 2 events zu senden -->
         Submit
@@ -102,7 +102,7 @@
 
 <script lang="ts">
 import Vue from "vue";
-import { GameFilter } from "../filters";
+import { GameFilter } from "../../shared/interfaces/filters";
 
 export default Vue.extend({
   name: "FilterModal",
@@ -118,7 +118,21 @@ export default Vue.extend({
       filter: {} as GameFilter,
     };
   },
-  methods: {},
+  computed: {
+    themeClass() {
+      const theme = this.$store.getters.getTheme;
+      switch (theme) {
+        case "light-theme":
+          return "light-theme";
+        case "dark-theme":
+          return "dark-theme";
+        case "red-gradient-theme":
+          return "red-gradient-theme";
+        default:
+          return "light-theme";
+      }
+    },
+  },
 });
 </script>
 <style scoped>
@@ -126,3 +140,4 @@ export default Vue.extend({
   width: auto;
 }
 </style>
+../../shared/interfaces/filters

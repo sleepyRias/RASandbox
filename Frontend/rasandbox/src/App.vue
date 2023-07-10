@@ -1,11 +1,10 @@
 <template>
-  <div :class="{ 'is-darkmode': darkmode }">
+  <div :class="themeClass">
     <user-modal
       v-if="showModal"
       :class="{ 'is-active': showModal }"
       :favGameList="favGameList"
       @close="showModal = false"
-      @updateColorScheme="changeDarkmode"
     />
     <filter-modal
       v-if="showFilter"
@@ -24,8 +23,8 @@
         <input type="text" class="input is-normal" v-model="inputText" />
       </div>
       <div class="column">
-        <button @click="submitGame(inputText)" class="button is-success">
-          Submit
+        <button @click="toggleTheme" class="button is-success">
+          increment
         </button>
       </div>
       <div class="column">
@@ -77,11 +76,11 @@
 const repo = new SteamRepositoryAxios(axios);
 import Vue from "vue";
 import axios from "axios";
-import { Game } from "./Game";
-import { SteamRepositoryAxios } from "./SteamRepositoryAxios";
+import { Game } from "../shared/interfaces/Game";
+import { SteamRepositoryAxios } from "../shared/axios/SteamRepositoryAxios";
 import UserModal from "./components/User-modal.vue";
 import FilterModal from "./components/Filter-modal.vue";
-import { GameFilter } from "./filters";
+import { GameFilter } from "../shared/interfaces/filters";
 export default Vue.extend({
   name: "App",
   components: {
@@ -137,8 +136,27 @@ export default Vue.extend({
       this.favGameList.push(game);
       // überarbeiten mit user und so
     },
-    changeDarkmode(mode: boolean) {
-      this.darkmode = mode;
+    toggleTheme() {
+      const newTheme =
+        this.$store.getters.getTheme === "light-theme"
+          ? "dark-theme"
+          : "light-theme";
+      this.$store.dispatch("setTheme", newTheme);
+    },
+  },
+  computed: {
+    themeClass() {
+      const theme = this.$store.getters.getTheme;
+      switch (theme) {
+        case "light-theme":
+          return "light-theme";
+        case "dark-theme":
+          return "dark-theme";
+        case "red-gradient-theme":
+          return "red-gradient-theme";
+        default:
+          return "light-theme";
+      }
     },
   },
   beforeMount() {
@@ -148,6 +166,7 @@ export default Vue.extend({
 </script>
 
 <style lang="scss">
+@import "../shared/themes.scss";
 .main-header {
   display: flex;
   justify-content: space-between;
@@ -174,8 +193,18 @@ export default Vue.extend({
 .favButton {
   margin-left: 20px;
 }
-.is-darkmode {
-  background-color: black;
-  color: white;
+.light-theme {
+  background-color: $background-light-theme-color;
+  color: $primary-light-theme-color;
+}
+.dark-theme {
+  background-color: $background-dark-theme-color;
+  color: $primary-dark-theme-color;
+}
+.red-gradient-theme {
+  background: $background-red-gradient-color;
+  color: $primary-red-gradient-color;
 }
 </style>
+../shared/axios/SteamRepositoryAxios ../shared/interfaces/filters
+../shared/interfaces/Game
