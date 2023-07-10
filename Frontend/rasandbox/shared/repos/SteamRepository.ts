@@ -1,4 +1,4 @@
-import { Game } from "./Game";
+import { Game } from "../interfaces/Game";
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
 export interface SteamRepository {

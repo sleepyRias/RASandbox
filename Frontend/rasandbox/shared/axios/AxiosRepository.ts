@@ -1,6 +1,6 @@
 /* eslint-disable */
 import { AxiosRequestConfig, AxiosInstance, AxiosResponse } from "axios";
-import { mapResponseAxios } from "../shared/api/responseMappers";
+import { mapResponseAxios } from "../api/responseMappers";
 
 type ResponseMapper<R> = (response: AxiosResponse) => R;
 

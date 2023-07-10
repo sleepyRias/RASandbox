@@ -66,8 +66,8 @@
 </template>
 <script lang="ts">
 import Vue from "vue";
-import { Game } from "../Game";
-import { User } from "../User";
+import { Game } from "../../shared/interfaces/Game";
+import { User } from "../../shared/interfaces/User";
 
 export default Vue.extend({
   name: "UserModal",
@@ -116,3 +116,4 @@ export default Vue.extend({
   },
 });
 </script>
+../../shared/interfaces/Game ../../shared/interfaces/User

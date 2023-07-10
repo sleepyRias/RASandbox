@@ -77,11 +77,11 @@
 const repo = new SteamRepositoryAxios(axios);
 import Vue from "vue";
 import axios from "axios";
-import { Game } from "./Game";
-import { SteamRepositoryAxios } from "./SteamRepositoryAxios";
+import { Game } from "../shared/interfaces/Game";
+import { SteamRepositoryAxios } from "../shared/axios/SteamRepositoryAxios";
 import UserModal from "./components/User-modal.vue";
 import FilterModal from "./components/Filter-modal.vue";
-import { GameFilter } from "./filters";
+import { GameFilter } from "../shared/interfaces/filters";
 export default Vue.extend({
   name: "App",
   components: {
@@ -179,3 +179,5 @@ export default Vue.extend({
   color: white;
 }
 </style>
+../shared/axios/SteamRepositoryAxios ../shared/interfaces/filters
+../shared/interfaces/Game

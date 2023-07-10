@@ -1,7 +1,7 @@
 import { AxiosRepository } from "./AxiosRepository";
-import { Game } from "./Game";
-import { games } from "./response";
-import { SteamRepository } from "@/SteamRepository";
+import { Game } from "../interfaces/Game";
+import { games } from "../../src/response";
+import { SteamRepository } from "../repos/SteamRepository";
 
 export class SteamRepositoryAxios
   extends AxiosRepository

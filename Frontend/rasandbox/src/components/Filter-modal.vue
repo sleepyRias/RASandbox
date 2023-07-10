@@ -102,7 +102,7 @@
 
 <script lang="ts">
 import Vue from "vue";
-import { GameFilter } from "../filters";
+import { GameFilter } from "../../shared/interfaces/filters";
 
 export default Vue.extend({
   name: "FilterModal",
@@ -126,3 +126,4 @@ export default Vue.extend({
   width: auto;
 }
 </style>
+../../shared/interfaces/filters
