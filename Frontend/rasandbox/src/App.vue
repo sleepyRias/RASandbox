@@ -1,11 +1,11 @@
 <template>
-  <div :class="{ 'is-darkmode': darkmode }">
+  <div :class="themeClass">
     <user-modal
       v-if="showModal"
       :class="{ 'is-active': showModal }"
       :favGameList="favGameList"
       @close="showModal = false"
-      @updateColorScheme="changeDarkmode"
+      @updateColorScheme="toggleTheme"
     />
     <filter-modal
       v-if="showFilter"
@@ -24,7 +24,9 @@
         <input type="text" class="input is-normal" v-model="inputText" />
       </div>
       <div class="column">
-        <button @click="null" class="button is-success">increment</button>
+        <button @click="toggleTheme" class="button is-success">
+          increment
+        </button>
       </div>
       <div class="column">
         <button class="button is-warning" @click="showFilter = !showFilter">
@@ -135,8 +137,17 @@ export default Vue.extend({
       this.favGameList.push(game);
       // überarbeiten mit user und so
     },
-    changeDarkmode(mode: boolean) {
-      this.darkmode = mode;
+    toggleTheme() {
+      const newTheme =
+        this.$store.getters.getTheme === "light" ? "dark" : "light";
+      this.$store.dispatch("setTheme", newTheme);
+    },
+  },
+  computed: {
+    themeClass() {
+      return this.$store.getters.getTheme === "light"
+        ? "light-theme"
+        : "dark-theme";
     },
   },
   beforeMount() {
@@ -146,6 +157,7 @@ export default Vue.extend({
 </script>
 
 <style lang="scss">
+@import "../shared/themes.scss";
 .main-header {
   display: flex;
   justify-content: space-between;
@@ -172,9 +184,13 @@ export default Vue.extend({
 .favButton {
   margin-left: 20px;
 }
-.is-darkmode {
-  background-color: black;
-  color: white;
+.light-theme {
+  background-color: $background-color;
+  color: $text-color;
+}
+.dark-theme {
+  background-color: $dark-background-color;
+  color: $dark-text-color;
 }
 </style>
 ../shared/axios/SteamRepositoryAxios ../shared/interfaces/filters

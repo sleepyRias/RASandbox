@@ -27,12 +27,7 @@
                 <option :value="true">Darkmode</option>
                 <option :value="false">Lightmode</option>
               </select>
-              <button
-                class="button is-info"
-                @click="$emit('updateColorScheme', colorScheme)"
-              >
-                Save
-              </button>
+              <button class="button is-info" @click="toggleTheme">Save</button>
               <!-- Darkmode in Vuex -->
             </div>
           </div>
@@ -106,6 +101,11 @@ export default Vue.extend({
       this.colorScheme = user.colorScheme;
       // we shouldnt do this like this but imma do it anyway
       this.$emit("updateColorScheme", this.colorScheme);
+    },
+    toggleTheme() {
+      const newTheme =
+        this.$store.getters.getTheme === "light" ? "dark" : "light";
+      this.$store.dispatch("setTheme", newTheme);
     },
   },
   props: {
