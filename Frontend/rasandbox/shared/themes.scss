@@ -1,10 +1,15 @@
-$primary-color: #007bff;
-$secondary-color: #6c757d;
-$text-color: #333333;
-$background-color: #ffffff;
+// light Theme
+$primary-light-theme-color: #333;
+$secondary-light-theme-color: #fff;
+$background-light-theme-color: #f5f5f5;
 
-// Dark mode
-$dark-primary-color: #336699;
-$dark-secondary-color: #8c8c8c;
-$dark-text-color: #ffffff !important;
-$dark-background-color: #222222 !important;
+// dark theme
+$primary-dark-theme-color: #fff;
+$secondary-dark-theme-color: #333;
+$background-dark-theme-color: #222;
+
+// red Gradient
+$primary-red-gradient-color: #ffff00;
+$secondary-red-gradient-color: #ffffff;
+$background-red-color: rgb(119, 0, 0);
+$background-red-gradient-color: linear-gradient(135deg, rgba(119, 0, 0, 1) 0%, rgba(255, 115, 0, 1) 50%, rgba(249, 255, 0, 1) 100%);

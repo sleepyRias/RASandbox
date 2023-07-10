@@ -146,9 +146,17 @@ export default Vue.extend({
   },
   computed: {
     themeClass() {
-      return this.$store.getters.getTheme === "light-theme"
-        ? "light-theme"
-        : "dark-theme";
+      const theme = this.$store.getters.getTheme;
+      switch (theme) {
+        case "light-theme":
+          return "light-theme";
+        case "dark-theme":
+          return "dark-theme";
+        case "red-gradient-theme":
+          return "red-gradient-theme";
+        default:
+          return "light-theme";
+      }
     },
   },
   beforeMount() {
@@ -186,12 +194,16 @@ export default Vue.extend({
   margin-left: 20px;
 }
 .light-theme {
-  background-color: $background-color;
-  color: $text-color;
+  background-color: $background-light-theme-color;
+  color: $primary-light-theme-color;
 }
 .dark-theme {
-  background-color: $dark-background-color;
-  color: $dark-text-color;
+  background-color: $background-dark-theme-color;
+  color: $primary-dark-theme-color;
+}
+.red-gradient-theme {
+  background: $background-red-gradient-color;
+  color: $primary-red-gradient-color;
 }
 </style>
 ../shared/axios/SteamRepositoryAxios ../shared/interfaces/filters

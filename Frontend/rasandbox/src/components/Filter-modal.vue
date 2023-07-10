@@ -120,9 +120,17 @@ export default Vue.extend({
   },
   computed: {
     themeClass() {
-      return this.$store.getters.getTheme === "light-theme"
-        ? "light-theme"
-        : "dark-theme";
+      const theme = this.$store.getters.getTheme;
+      switch (theme) {
+        case "light-theme":
+          return "light-theme";
+        case "dark-theme":
+          return "dark-theme";
+        case "red-gradient-theme":
+          return "red-gradient-theme";
+        default:
+          return "light-theme";
+      }
     },
   },
 });

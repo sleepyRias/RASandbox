@@ -24,11 +24,9 @@
                 </li>
               </ul>
               <select class="column select" v-model="colorScheme">
-                {{
-                  colorScheme
-                }}
                 <option :value="'dark-theme'">Darkmode</option>
                 <option :value="'light-theme'">Lightmode</option>
+                <option :value="'red-gradient-theme'">Red Gradient</option>
               </select>
               <button class="button is-info" @click="setTheme">Save</button>
             </div>
@@ -103,13 +101,6 @@ export default Vue.extend({
       this.colorScheme = user.colorScheme;
       this.$store.dispatch("setTheme", user.colorScheme);
     },
-    toggleTheme() {
-      const newTheme =
-        this.$store.getters.getTheme === "light-theme"
-          ? "dark-theme"
-          : "light-theme";
-      this.$store.dispatch("setTheme", newTheme);
-    },
     setTheme() {
       this.$store.dispatch("setTheme", this.colorScheme);
     },
@@ -122,9 +113,17 @@ export default Vue.extend({
   },
   computed: {
     themeClass() {
-      return this.$store.getters.getTheme === "light-theme"
-        ? "light-theme"
-        : "dark-theme";
+      const theme = this.$store.getters.getTheme;
+      switch (theme) {
+        case "light-theme":
+          return "light-theme";
+        case "dark-theme":
+          return "dark-theme";
+        case "red-gradient-theme":
+          return "red-gradient-theme";
+        default:
+          return "light-theme";
+      }
     },
   },
 });
