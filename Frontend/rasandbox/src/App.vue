@@ -94,10 +94,6 @@ export default Vue.extend({
     requestGames() {
       this.gamesList = repo.loadGames();
     },
-    /** @deprecated **/
-    submitGame(name: string) {
-      this.gamesList.push({ name: name, id: 0, price: 0, genre: 0 });
-    },
     // WEG
     updateFilter(filter: GameFilter) {
       this.showFilter = false;
@@ -118,7 +114,6 @@ export default Vue.extend({
     },
     async getGames(amount: number) {
       this.gamesList = await repo.getGames(amount);
-      // amount kommt weg
     },
     toggleTheme() {
       const newTheme =
