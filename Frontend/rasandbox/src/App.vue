@@ -29,8 +29,7 @@
         </button>
       </div>
       <div class="colum">
-        <button class="button" @click="getGames(amount)">G A M E S</button>
-        <input class="input" v-model="amount" />
+        <button class="button" @click="getGames(10)">G A M E S</button>
       </div>
     </div>
     <div class="columns is-gapless is-multiline">
@@ -120,10 +119,6 @@ export default Vue.extend({
     async getGames(amount: number) {
       this.gamesList = await repo.getGames(amount);
       // amount kommt weg
-    },
-    addGameToFavorites(game: Game) {
-      this.favGameList.push(game);
-      // überarbeiten mit user und so
     },
     toggleTheme() {
       const newTheme =
