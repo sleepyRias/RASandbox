@@ -2,15 +2,15 @@
   <div class="modal">
     <div class="modal-background"></div>
     <div class="modal-content">
-      <div class="box">
-        <div class="columns">
+      <div class="box" :class="themeClass">
+        <div class="columns is-multiline">
           <div v-if="name !== ''">
             <div class="column">
               <figure class="image is-128x128">
                 <img src="https://bulma.io/images/placeholders/128x128.png" />
               </figure>
             </div>
-            <div class="columns is-multiline">
+            <div class="column">
               <span>Username: {{ username }}</span>
             </div>
             <div class="column">
@@ -24,6 +24,9 @@
                 </li>
               </ul>
               <select class="column select" v-model="colorScheme">
+                {{
+                  colorScheme
+                }}
                 <option :value="'dark-theme'">Darkmode</option>
                 <option :value="'light-theme'">Lightmode</option>
               </select>
@@ -115,6 +118,13 @@ export default Vue.extend({
     favGameList: {
       default: [],
       type: [],
+    },
+  },
+  computed: {
+    themeClass() {
+      return this.$store.getters.getTheme === "light-theme"
+        ? "light-theme"
+        : "dark-theme";
     },
   },
 });

@@ -5,7 +5,6 @@
       :class="{ 'is-active': showModal }"
       :favGameList="favGameList"
       @close="showModal = false"
-      @updateColorScheme="toggleTheme"
     />
     <filter-modal
       v-if="showFilter"
