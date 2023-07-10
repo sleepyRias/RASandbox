@@ -139,13 +139,15 @@ export default Vue.extend({
     },
     toggleTheme() {
       const newTheme =
-        this.$store.getters.getTheme === "light" ? "dark" : "light";
+        this.$store.getters.getTheme === "light-theme"
+          ? "dark-theme"
+          : "light-theme";
       this.$store.dispatch("setTheme", newTheme);
     },
   },
   computed: {
     themeClass() {
-      return this.$store.getters.getTheme === "light"
+      return this.$store.getters.getTheme === "light-theme"
         ? "light-theme"
         : "dark-theme";
     },

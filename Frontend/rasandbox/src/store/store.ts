@@ -4,7 +4,7 @@ interface State {
 
 export const storeOptions = {
   state: {
-    theme: "light",
+    theme: "light-theme",
   },
   mutations: {
     setTheme(state: State, theme: string) {

@@ -24,11 +24,10 @@
                 </li>
               </ul>
               <select class="column select" v-model="colorScheme">
-                <option :value="true">Darkmode</option>
-                <option :value="false">Lightmode</option>
+                <option :value="'dark-theme'">Darkmode</option>
+                <option :value="'light-theme'">Lightmode</option>
               </select>
-              <button class="button is-info" @click="toggleTheme">Save</button>
-              <!-- Darkmode in Vuex -->
+              <button class="button is-info" @click="setTheme">Save</button>
             </div>
           </div>
           <div v-else-if="name === ''">
@@ -104,8 +103,13 @@ export default Vue.extend({
     },
     toggleTheme() {
       const newTheme =
-        this.$store.getters.getTheme === "light" ? "dark" : "light";
+        this.$store.getters.getTheme === "light-theme"
+          ? "dark-theme"
+          : "light-theme";
       this.$store.dispatch("setTheme", newTheme);
+    },
+    setTheme() {
+      this.$store.dispatch("setTheme", this.colorScheme);
     },
   },
   props: {
