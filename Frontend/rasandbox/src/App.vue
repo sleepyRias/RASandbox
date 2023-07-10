@@ -19,11 +19,6 @@
     </div>
     <div class="columns">
       <div class="column">
-        <button @click="toggleTheme" class="button is-success">
-          increment
-        </button>
-      </div>
-      <div class="column">
         <button class="button is-warning" @click="showFilter = !showFilter">
           Filter
         </button>
