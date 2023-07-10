@@ -24,9 +24,7 @@
         <input type="text" class="input is-normal" v-model="inputText" />
       </div>
       <div class="column">
-        <button @click="submitGame(inputText)" class="button is-success">
-          Submit
-        </button>
+        <button @click="null" class="button is-success">increment</button>
       </div>
       <div class="column">
         <button class="button is-warning" @click="showFilter = !showFilter">
