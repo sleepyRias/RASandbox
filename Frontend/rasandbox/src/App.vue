@@ -54,12 +54,7 @@
             <li>{{ game.company }}</li>
             <li>{{ game.releaseDate }}</li>
           </ul>
-          <button
-            class="button is-warning favButton"
-            @click="addGameToFavorites(game)"
-          >
-            Favorite
-          </button>
+          <button class="favButton button is-warning">Favorite</button>
           <!-- stern oben rechts font awesome -->
         </div>
       </div>
@@ -164,9 +159,13 @@ export default Vue.extend({
 .gameBox {
   border: 1px solid black;
   margin: 10px 5px 0px 5px;
+  position: relative;
 }
 .favButton {
   margin-left: 20px;
+  position: absolute !important;
+  top: 0;
+  right: 0;
 }
 .light-theme {
   background-color: $background-light-theme-color;
