@@ -30,7 +30,7 @@
     <div class="columns is-gapless is-multiline">
       <div
         class="column is-one-third"
-        v-for="game in gamesList"
+        v-for="game in filteredList"
         :key="game.name"
       >
         <div
