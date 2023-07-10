@@ -185,5 +185,3 @@ export default Vue.extend({
   color: $primary-red-gradient-color;
 }
 </style>
-../shared/axios/SteamRepositoryAxios ../shared/interfaces/filters
-../shared/interfaces/Game

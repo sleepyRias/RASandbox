@@ -121,4 +121,3 @@ export default Vue.extend({
   },
 });
 </script>
-../../shared/interfaces/Game ../../shared/interfaces/User
