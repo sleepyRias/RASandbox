@@ -82,8 +82,6 @@ namespace backend.Controllers
         }
 
 
-
-
         [HttpPost("Games")]
         public IActionResult CreateGame([FromBody] Game game)
         {
